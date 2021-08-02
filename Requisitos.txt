@@ -1,0 +1,3 @@
+Nuget Package Excel Data reader
+nuget package excel datareader.dataset
+nuget package microsoft office interop excel
