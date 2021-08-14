@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
-using MySql.Data.MySqlClient;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 
 namespace AppPackGo
@@ -117,7 +110,7 @@ namespace AppPackGo
             this.comando.Parameters.AddWithValue("@num_pedido", v.pnpedido);
             this.comando.Parameters.AddWithValue("@destinatario", v.pdestinatario);
             this.comando.Parameters.AddWithValue("@dni", v.pdni);
-            this.comando.Parameters.AddWithValue("@domicilio", v.pdomicilio);                                 
+            this.comando.Parameters.AddWithValue("@domicilio", v.pdomicilio);
             this.comando.Parameters.AddWithValue("@localidad", v.plocalidad);
             this.comando.Parameters.AddWithValue("@provincia", v.pprovincia);
             this.comando.Parameters.AddWithValue("@costo", v.pcosto);
@@ -129,7 +122,7 @@ namespace AppPackGo
             this.desconectarBD();
         }
 
-           
+
 
 
 

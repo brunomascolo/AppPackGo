@@ -1,15 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using AppPackGo;
+using System.Windows.Forms;
 
 namespace AppPackGo
 {
@@ -34,36 +26,32 @@ namespace AppPackGo
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-    
-
-        //;
-
-   
-        public void cargarConsulta(DataGridView consulta, string nombreconsulta)
-        {
-            Viaje v = new Viaje();
-
-            v.pusuario = tablaUsuario.Rows[0][0].ToString();
-            v.pidsucursal = Convert.ToInt32(tablaUsuario.Rows[0][2]);
-            v.pidprov = Convert.ToInt32(tablaUsuario.Rows[0][3]);
-            DataTable tabla = oBD.consultarBDD(consultaBDD: "SELECT e.fecha_creacion as 'Fecha de Creacion', e.fecha_envio as 'Fecha de Envio', e.num_pedido as 'Numero de Pedido', e.destinatario as 'Destinatario', e.dni as 'DNI', e.domicilio as 'Domicilio', e.usuario as 'Usuario de Carga', s.nombre as 'Sucursal', p.nombre as 'Provincia', a.accion as 'Operacion' FROM ENVIOS as e JOIN SUCURSALES as s ON e.id_sucursal = s.id_sucursal JOIN PROVINCIAS as p ON e.id_prov = p.id_prov JOIN ACCIONES as a ON e.id_accion = a.id_accion WHERE e.id_sucursal = " + v.pidsucursal + " order by e.fecha_creacion DESC ;"); // 
-            dgvConsulta.DataSource = tabla;
-
-        }
-
-
-
-
-        private void btnMinimizarInterfaz_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void VentanaConsultas_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        //;
+
+        //Cargar la lista
+
+        public void cargarConsulta(DataGridView consulta, string nombreconsulta)
+        {
+            Viaje v = new Viaje();
+                      
+            DataTable tabla = oBD.consultarBDD(consultaBDD: "SELECT e.cliente as 'Cliente', e.fecha_creacion as 'Fecha de Creacion', e.fecha_envio as 'Fecha de Envio', e.num_pedido as 'Numero de Pedido', e.destinatario as 'Destinatario', e.dni as 'DNI', e.domicilio as 'Domicilio', e.localidad as 'Localidad', e.provincia as 'Provincia', e.costo as 'Costo', e.precio_venta as 'Precio de Venta', e.usuario as 'Usuario de Carga' FROM ENVIOS as e order by e.fecha_creacion DESC ;"); // 
+            dgvConsulta.DataSource = tabla;
+
+        }
+        //Termina cargar la lista
+
+        //Funcionalidad de botones
+
+        private void btnMinimizarInterfaz_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }       
 
         private void btnSalir3_Click(object sender, EventArgs e)
         {
@@ -80,6 +68,13 @@ namespace AppPackGo
         {
             VentanaInterfazUsuario interfaz = new VentanaInterfazUsuario(tablaUsuario);
             interfaz.Show();
+
+            this.Hide();
+        }
+        private void lnkImportar2_Click(object sender, EventArgs e)
+        {
+            VentanaImportar importar = new VentanaImportar(tablaUsuario);
+            importar.Show();
 
             this.Hide();
         }
@@ -102,7 +97,7 @@ namespace AppPackGo
 
 
                         }
-                        MessageBox.Show("La exportacion fue exitosa","Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("La exportacion fue exitosa", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                     }
@@ -117,16 +112,10 @@ namespace AppPackGo
             }
         }
 
-        private void lnkImportar2_Click(object sender, EventArgs e)
-        {
-            //VentanaImportar importar = new VentanaImportar(tablaUsuario);
-            //importar.Show();
+        //Termina funcionalidades de los botones   
 
-            //this.Hide();
-        }
 
-    
     }
 }
-    
+
 

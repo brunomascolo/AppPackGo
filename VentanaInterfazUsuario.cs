@@ -1,15 +1,8 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using AppPackGo;
+using System.Windows.Forms;
 
 namespace AppPackGo
 {
@@ -19,9 +12,11 @@ namespace AppPackGo
     {
         Gestor_de_Datos oBD = new Gestor_de_Datos();
         bool nuevo = false;
-        
+
 
         DataTable tablaUsuario = new DataTable();
+
+        
 
         public VentanaInterfazUsuario(DataTable tablaUsuario)
         {
@@ -30,222 +25,14 @@ namespace AppPackGo
             this.tablaUsuario = tablaUsuario;
         }
 
-        //movilizar ventana por el escritorio:
-
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-        //;
-
-        private void VentanaInterfazUsuario_Load(object sender, EventArgs e)
-        {
-            habilitar(false);            
-            btnRegistrarPedido.Enabled = false;
-        }
-
-        public void habilitar(bool x)
-        {
-            fechaCreacion.Enabled = x;
-            fechaEnvio.Enabled = x;
-            tbNpedido.Enabled = x;
-            tbDestinatario.Enabled = x;
-            tbDNI.Enabled = x;
-            tbDomicilio.Enabled = x;            
-            btnNuevoPedido.Enabled = !x;
-            btnRegistrarPedido.Enabled = x;
-            tbCliente.Enabled = x;
-            tbCosto.Enabled = x;
-            tbPrecioVenta.Enabled = x;
-            tbProvincia.Enabled = x;
-            tbLocalidad.Enabled = x;
-        }
-
-
-        private void limpiar()
-        {
-            tbNpedido.Text = "";
-            tbDestinatario.Text = "";
-            tbDNI.Text = "";
-            tbDomicilio.Text = "";
-            fechaCreacion.Value = DateTime.Now;
-            fechaEnvio.Value = DateTime.Now;
-            tbCliente.Text = "";
-            tbProvincia.Text = "";
-            tbLocalidad.Text = "";
-            tbCosto.Text = "";
-            tbPrecioVenta.Text = "";
-
-        }
-
-        private void inicializar ()
-        {
-            tbNpedido.Text = "Numero de Pedido";           
-            tbDestinatario.Text = "Destinatario";
-            tbDNI.Text = "DNI (Solo Numeros)";
-            tbDomicilio.Text = "Domicilio: (Calle, Numero, Localidad)";
-            fechaCreacion.Value = DateTime.Now;
-            fechaEnvio.Value = DateTime.Now;
-            tbCliente.Text = "Cliente";
-            tbProvincia.Text = "Provincia";
-            tbLocalidad.Text = "Localidad";
-            tbCosto.Text = "Costo";
-            tbPrecioVenta.Text = "Precio de Venta";
-
-
-        }
-    
-      
-
-        private void btnRegistrarPedido_Click(object sender, EventArgs e)
-        {
-
-            if (tbNpedido.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un numero de pedido");
-                return;
-            }
-
-            if (tbDestinatario.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un Destinatario");
-                return;
-            }
-           
-            if (tbCliente.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un Cliente");
-                return;
-            }
-
-            if (tbProvincia.Text == "")
-            {
-                MessageBox.Show("Debe ingresar una Provincia");
-                return;
-
-            }
-
-            if(tbCosto.Text =="")
-            {
-                MessageBox.Show("Debe ingresar el Costo");
-                return;
-            }
-
-            if(tbPrecioVenta.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un Precio de Venta");
-                return;
-            }
-
-            if(tbLocalidad.Text =="")
-            {
-                MessageBox.Show("Debe ingresar una Localidad");
-                return;
-            }
-
-            if (tbDNI.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un DNI");
-                return;
-            }
-          
-            if (tbDomicilio.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un domicilio");
-                return;
-            }
-            if (fechaEnvio.Value < fechaCreacion.Value)
-            {
-                MessageBox.Show("La fecha de Envio no puede ser menor que la fecha de creacion.");
-                return;
-
-            }
-            try
-            {
-                int DNI = Convert.ToInt32(tbDNI.Text);
-                int npedido = Convert.ToInt32(tbNpedido.Text);
-                float costo = float.Parse(tbCosto.Text);
-                float precio = float.Parse(tbPrecioVenta.Text);
-                
-
-            }
-
-            catch (Exception)
-            {
-                MessageBox.Show("Las casillas DNI, Numero de Pedido, Costo y Precio solo aceptan numeros");
-                return;
-            }
-
-            Viaje v = new Viaje();
-            v.pcliente = tbCliente.Text;
-            v.pfechacreacion = Convert.ToDateTime(fechaCreacion.Value);
-            v.pfechaenvio = Convert.ToDateTime(fechaEnvio.Value);
-            v.pnpedido = Convert.ToInt32(tbNpedido.Text);
-            v.pdestinatario = tbDestinatario.Text;
-            v.pdni = Convert.ToInt32(tbDNI.Text);
-            v.pdomicilio = tbDomicilio.Text;
-            v.plocalidad = tbLocalidad.Text.ToUpper();
-            v.pprovincia = tbProvincia.Text.ToUpper();
-            v.pcosto = float.Parse(tbCosto.Text);
-            v.pprecio_venta = float.Parse(tbPrecioVenta.Text);
-            v.pusuario = tablaUsuario.Rows[0][0].ToString();
-           
-
-            try
-            {
-                if (nuevo )
-                {
-                    string consulta = "insert into ENVIOS(cliente, fecha_creacion, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario) values (@cliente, @fecha_creacion, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario);";
-                    oBD.actualizarConParametros(consulta, v);                  
-
-                    habilitar(false);
-                    limpiar();
-                    inicializar();
-                    nuevo = true;
-                    btnRegistrarPedido.Enabled = false;
-                    MessageBox.Show("Operacion Exitosa");
-
-                }
-
-               
-                
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                return;
-            }  
-
-        }
-
-        private void btnNuevoPedido_Click(object sender, EventArgs e)
-        {
-            habilitar(true);
-            nuevo = true;
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Seguro de abandonar la aplicación ?", "SALIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
-                this.Close();
-                Application.Exit();
-            }
-
-            else { this.Show(); }
-            
-        }
+        //Desvanecer titulos de TB
 
         private void tbNpedido_Enter(object sender, EventArgs e)
         {
-            if(tbNpedido.Text == "Numero de Pedido")
+            if (tbNpedido.Text == "Numero de Pedido")
             {
                 tbNpedido.Text = "";
-                tbNpedido.ForeColor = Color.White; 
+                tbNpedido.ForeColor = Color.White;
 
             }
         }
@@ -314,32 +101,6 @@ namespace AppPackGo
                 tbDomicilio.Text = "Domicilio: (Calle, Numero)";
                 tbDomicilio.ForeColor = Color.White;
             }
-        }
-
-        private void btnMinimizarInterfaz_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized; 
-        }
-
-        private void VentanaInterfazUsuario_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void lnkConsultas1_Click(object sender, EventArgs e)
-        {
-            VentanaConsultas consultar = new VentanaConsultas(tablaUsuario);
-            consultar.Show();
-            this.Hide();
-        }
-
-        private void lnkImportar1_Click(object sender, EventArgs e)
-        {
-            VentanaImportar importar = new VentanaImportar(tablaUsuario);
-            importar.Show();
-
-            this.Hide();
         }
 
         private void tbCliente_Enter(object sender, EventArgs e)
@@ -437,5 +198,258 @@ namespace AppPackGo
                 tbProvincia.ForeColor = Color.White;
             }
         }
+
+        //Termina metodos de desvanecimiento
+
+
+        //movilizar ventana por el escritorio:
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
+        private void VentanaInterfazUsuario_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        //Termina mmetodo para movilizar ventana
+
+        private void VentanaInterfazUsuario_Load(object sender, EventArgs e)
+        {
+            habilitar(false);
+            btnRegistrarPedido.Enabled = false;
+        }
+
+        //Metodo para habilitar y deshabilitar los TB
+        public void habilitar(bool x)
+        {
+            fechaCreacion.Enabled = x;
+            fechaEnvio.Enabled = x;
+            tbNpedido.Enabled = x;
+            tbDestinatario.Enabled = x;
+            tbDNI.Enabled = x;
+            tbDomicilio.Enabled = x;
+            btnNuevoPedido.Enabled = !x;
+            btnRegistrarPedido.Enabled = x;
+            tbCliente.Enabled = x;
+            tbCosto.Enabled = x;
+            tbPrecioVenta.Enabled = x;
+            tbProvincia.Enabled = x;
+            tbLocalidad.Enabled = x;
+        }
+        //Termina metodo habilitar los TB
+
+        //Metodo para limpiar e inicializar los TB despues de registrar pedido
+
+        private void limpiar()
+        {
+            tbNpedido.Text = "";
+            tbDestinatario.Text = "";
+            tbDNI.Text = "";
+            tbDomicilio.Text = "";
+            fechaCreacion.Value = DateTime.Now;
+            fechaEnvio.Value = DateTime.Now;
+            tbCliente.Text = "";
+            tbProvincia.Text = "";
+            tbLocalidad.Text = "";
+            tbCosto.Text = "";
+            tbPrecioVenta.Text = "";
+
+        }       
+
+        private void inicializar()
+        {
+            tbNpedido.Text = "Numero de Pedido";
+            tbDestinatario.Text = "Destinatario";
+            tbDNI.Text = "DNI (Solo Numeros)";
+            tbDomicilio.Text = "Domicilio: (Calle, Numero, Localidad)";
+            fechaCreacion.Value = DateTime.Now;
+            fechaEnvio.Value = DateTime.Now;
+            tbCliente.Text = "Cliente";
+            tbProvincia.Text = "Provincia";
+            tbLocalidad.Text = "Localidad";
+            tbCosto.Text = "Costo";
+            tbPrecioVenta.Text = "Precio de Venta";
+
+
+        }
+
+        //Termina metodo para limpiar e inicializar TB
+
+        //Metodo para registrar un pedido nuevo
+
+        private void btnRegistrarPedido_Click(object sender, EventArgs e)
+        {
+            //Validaciones:
+
+            if (tbNpedido.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un numero de pedido");
+                return;
+            }
+
+            if (tbDestinatario.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Destinatario");
+                return;
+            }
+
+            if (tbCliente.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Cliente");
+                return;
+            }
+
+            if (tbProvincia.Text == "")
+            {
+                MessageBox.Show("Debe ingresar una Provincia");
+                return;
+
+            }
+
+            if (tbCosto.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el Costo");
+                return;
+            }
+
+            if (tbPrecioVenta.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Precio de Venta");
+                return;
+            }
+
+            if (tbLocalidad.Text == "")
+            {
+                MessageBox.Show("Debe ingresar una Localidad");
+                return;
+            }
+
+            if (tbDNI.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un DNI");
+                return;
+            }
+
+            if (tbDomicilio.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un domicilio");
+                return;
+            }
+            if (fechaEnvio.Value < fechaCreacion.Value)
+            {
+                MessageBox.Show("La fecha de Envio no puede ser menor que la fecha de creacion.");
+                return;
+
+            }
+            try
+            {
+                int DNI = Convert.ToInt32(tbDNI.Text);
+                int npedido = Convert.ToInt32(tbNpedido.Text);
+                float costo = float.Parse(tbCosto.Text);
+                float precio = float.Parse(tbPrecioVenta.Text);
+
+
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("Las casillas DNI, Numero de Pedido, Costo y Precio solo aceptan numeros");
+                return;
+            }
+
+            //registro a la propiedad los campos ya validados
+
+            Viaje v = new Viaje();
+            v.pcliente = tbCliente.Text.ToUpper();
+            v.pfechacreacion = Convert.ToDateTime(fechaCreacion.Value);
+            v.pfechaenvio = Convert.ToDateTime(fechaEnvio.Value);
+            v.pnpedido = Convert.ToInt32(tbNpedido.Text);
+            v.pdestinatario = tbDestinatario.Text;
+            v.pdni = Convert.ToInt32(tbDNI.Text);
+            v.pdomicilio = tbDomicilio.Text;
+            v.plocalidad = tbLocalidad.Text.ToUpper();
+            v.pprovincia = tbProvincia.Text.ToUpper();
+            v.pcosto = float.Parse(tbCosto.Text);
+            v.pprecio_venta = float.Parse(tbPrecioVenta.Text);
+            v.pusuario = tablaUsuario.Rows[0][0].ToString();
+
+
+            try
+            {
+                if (nuevo)
+
+                    //Inserto en la BDD
+                {
+                    string consulta = "insert into ENVIOS(cliente, fecha_creacion, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario) values (@cliente, @fecha_creacion, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario);";
+                    oBD.actualizarConParametros(consulta, v);
+
+                    habilitar(false);
+                    limpiar();
+                    inicializar();
+                    nuevo = true;
+                    btnRegistrarPedido.Enabled = false;
+                    MessageBox.Show("Operacion Exitosa");
+
+                }
+
+
+
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return;
+            }
+
+        }
+
+        //funcionalidades de los botones
+
+        private void btnNuevoPedido_Click(object sender, EventArgs e)
+        {
+            habilitar(true);
+            nuevo = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seguro de abandonar la aplicación ?", "SALIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.Close();
+                Application.Exit();
+            }
+            else { this.Show(); }
+        }        
+
+        private void btnMinimizarInterfaz_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }       
+
+        private void lnkConsultas1_Click(object sender, EventArgs e)
+        {
+            VentanaConsultas consultar = new VentanaConsultas(tablaUsuario);
+            consultar.Show();
+            this.Hide();
+        }
+
+        private void lnkImportar1_Click(object sender, EventArgs e)
+        {
+            VentanaImportar importar = new VentanaImportar(tablaUsuario);
+            importar.Show();
+
+            this.Hide();
+        }
+
+        //Termina funcionalidades de los botones
+
+       
     }
 }

@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using AppPackGo;
-using MySql.Data.MySqlClient;
 
 namespace AppPackGo
 {
@@ -25,11 +17,22 @@ namespace AppPackGo
             dgvImportar.Visible = false;
         }
 
+        //Movilizar ventana en el escritorio
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+        private void VentanaImportar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        //Termina movilizar ventana en el escritorio
+
+        //Funcionalidades de los botones
 
         private void btnMinimizarInterfaz_Click(object sender, EventArgs e)
         {
@@ -48,13 +51,7 @@ namespace AppPackGo
             VentanaInterfazUsuario interfaz = new VentanaInterfazUsuario(tablaUsuario);
             interfaz.Show();
             this.Hide();
-        }
-
-        private void VentanaImportar_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
+        }     
 
         private void btnSalir4_Click(object sender, EventArgs e)
         {
@@ -66,6 +63,10 @@ namespace AppPackGo
             else { this.Show(); }
         }
 
+        //Termina funcionalidades de los botones
+
+
+        //Metodo para buscar el archivo excel e importarlo al DGV
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Microsoft.Office.Interop.Excel.Application xlApp;
@@ -100,11 +101,13 @@ namespace AppPackGo
             }
         }
 
+        //Termina metodo para buscar el archivo excel e importarlo al DGV
+
         private void btnImportar_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < dgvImportar.Rows.Count; i++)
             {
-                var n = dgvImportar.Rows[i].Cells[3].Value;
+                var n = dgvImportar.Rows[i].Cells[4].Value;
                 if (n != null) //destinatario NO PUEDE SER NULO//
                 {
                     Viaje v = new Viaje();
@@ -119,13 +122,13 @@ namespace AppPackGo
                     v.pprovincia = (dgvImportar.Rows[i].Cells[8].Value).ToString().ToUpper();
                     v.pcosto = float.Parse((string)dgvImportar.Rows[i].Cells[9].Value);
                     v.pprecio_venta = float.Parse((string)dgvImportar.Rows[i].Cells[10].Value);
-                    v.pusuario = (tablaUsuario.Rows[0][0]).ToString();                    
-                    
-                    
+                    v.pusuario = (tablaUsuario.Rows[0][0]).ToString();
+
+
                     string consulta = "insert into ENVIOS(cliente, fecha_creacion, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario) values (@cliente, @fecha_creacion, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario);";
                     oBD.actualizarConParametros(consulta, v);
 
-                    
+
                 }
             }
             MessageBox.Show("Importacion Exitosa!");
