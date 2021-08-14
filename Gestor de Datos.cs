@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+
 
 namespace AppPackGo
 {
@@ -109,23 +111,25 @@ namespace AppPackGo
 
             this.comando.Parameters.Clear();
 
-            this.comando.Parameters.AddWithValue("@fechaenvio", v.pfechaenvio);
-            this.comando.Parameters.AddWithValue("@numpedido", v.pnpedido);
+            this.comando.Parameters.AddWithValue("@cliente", v.pcliente);
+            this.comando.Parameters.AddWithValue("@fecha_creacion", v.pfechacreacion);
+            this.comando.Parameters.AddWithValue("@fecha_envio", v.pfechaenvio);
+            this.comando.Parameters.AddWithValue("@num_pedido", v.pnpedido);
             this.comando.Parameters.AddWithValue("@destinatario", v.pdestinatario);
             this.comando.Parameters.AddWithValue("@dni", v.pdni);
-            this.comando.Parameters.AddWithValue("@domicilio", v.pdomicilio);
+            this.comando.Parameters.AddWithValue("@domicilio", v.pdomicilio);                                 
+            this.comando.Parameters.AddWithValue("@localidad", v.plocalidad);
+            this.comando.Parameters.AddWithValue("@provincia", v.pprovincia);
+            this.comando.Parameters.AddWithValue("@costo", v.pcosto);
+            this.comando.Parameters.AddWithValue("@precio_venta", v.pprecio_venta);
             this.comando.Parameters.AddWithValue("@usuario", v.pusuario);
-            this.comando.Parameters.AddWithValue("@idsucursal", v.pidsucursal);
-            this.comando.Parameters.AddWithValue("@idprov", v.pidprov);
-            this.comando.Parameters.AddWithValue("@fechacreacion", v.pfechacreacion);
-            this.comando.Parameters.AddWithValue("@idaccion", v.paccion);
 
             this.comando.ExecuteNonQuery();
 
             this.desconectarBD();
         }
 
-       
+           
 
 
 

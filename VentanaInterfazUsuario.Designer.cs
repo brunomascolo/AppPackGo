@@ -1,5 +1,5 @@
 ﻿
-namespace AppLibertad
+namespace AppPackGo
 {
     partial class VentanaInterfazUsuario
     {
@@ -39,8 +39,6 @@ namespace AppLibertad
             this.tbDomicilio = new System.Windows.Forms.TextBox();
             this.tbDestinatario = new System.Windows.Forms.TextBox();
             this.tbDNI = new System.Windows.Forms.TextBox();
-            this.desplegableAccion = new System.Windows.Forms.ComboBox();
-            this.tituloAccion = new System.Windows.Forms.Label();
             this.btnRegistrarPedido = new System.Windows.Forms.Button();
             this.btnNuevoPedido = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -54,6 +52,16 @@ namespace AppLibertad
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
+            this.tbCliente = new System.Windows.Forms.TextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.tbLocalidad = new System.Windows.Forms.TextBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.tbProvincia = new System.Windows.Forms.TextBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.tbCosto = new System.Windows.Forms.TextBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.tbPrecioVenta = new System.Windows.Forms.TextBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -61,6 +69,11 @@ namespace AppLibertad
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // fechaCreacion
@@ -84,16 +97,16 @@ namespace AppLibertad
             this.tituloPortalEnvios.ForeColor = System.Drawing.Color.White;
             this.tituloPortalEnvios.Location = new System.Drawing.Point(650, 35);
             this.tituloPortalEnvios.Name = "tituloPortalEnvios";
-            this.tituloPortalEnvios.Size = new System.Drawing.Size(347, 38);
+            this.tituloPortalEnvios.Size = new System.Drawing.Size(394, 38);
             this.tituloPortalEnvios.TabIndex = 0;
-            this.tituloPortalEnvios.Text = "Portal Envios No Food";
+            this.tituloPortalEnvios.Text = "Registrar Envios Unitarios";
             // 
             // tituloFechaCreacion
             // 
             this.tituloFechaCreacion.AutoSize = true;
             this.tituloFechaCreacion.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloFechaCreacion.ForeColor = System.Drawing.Color.White;
-            this.tituloFechaCreacion.Location = new System.Drawing.Point(309, 268);
+            this.tituloFechaCreacion.Location = new System.Drawing.Point(305, 268);
             this.tituloFechaCreacion.Name = "tituloFechaCreacion";
             this.tituloFechaCreacion.Size = new System.Drawing.Size(206, 23);
             this.tituloFechaCreacion.TabIndex = 4;
@@ -129,7 +142,7 @@ namespace AppLibertad
             this.tbNpedido.ForeColor = System.Drawing.Color.White;
             this.tbNpedido.Location = new System.Drawing.Point(309, 374);
             this.tbNpedido.Name = "tbNpedido";
-            this.tbNpedido.Size = new System.Drawing.Size(257, 25);
+            this.tbNpedido.Size = new System.Drawing.Size(304, 25);
             this.tbNpedido.TabIndex = 3;
             this.tbNpedido.Text = "Numero de Pedido";
             this.tbNpedido.Enter += new System.EventHandler(this.tbNpedido_Enter);
@@ -145,7 +158,7 @@ namespace AppLibertad
             this.tbDomicilio.Name = "tbDomicilio";
             this.tbDomicilio.Size = new System.Drawing.Size(379, 25);
             this.tbDomicilio.TabIndex = 6;
-            this.tbDomicilio.Text = "Domicilio: (Calle, Numero, Localidad)";
+            this.tbDomicilio.Text = "Domicilio: (Calle, Numero)";
             this.tbDomicilio.Enter += new System.EventHandler(this.tbDomicilio_Enter);
             this.tbDomicilio.Leave += new System.EventHandler(this.tbDomicilio_Leave);
             // 
@@ -157,7 +170,7 @@ namespace AppLibertad
             this.tbDestinatario.ForeColor = System.Drawing.Color.White;
             this.tbDestinatario.Location = new System.Drawing.Point(740, 374);
             this.tbDestinatario.Name = "tbDestinatario";
-            this.tbDestinatario.Size = new System.Drawing.Size(257, 25);
+            this.tbDestinatario.Size = new System.Drawing.Size(304, 25);
             this.tbDestinatario.TabIndex = 4;
             this.tbDestinatario.Text = "Destinatario";
             this.tbDestinatario.Enter += new System.EventHandler(this.tbDestinatario_Enter);
@@ -176,29 +189,6 @@ namespace AppLibertad
             this.tbDNI.Text = "DNI (Solo Numeros)";
             this.tbDNI.Enter += new System.EventHandler(this.tbDNI_Enter);
             this.tbDNI.Leave += new System.EventHandler(this.tbDNI_Leave);
-            // 
-            // desplegableAccion
-            // 
-            this.desplegableAccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.desplegableAccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.desplegableAccion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.desplegableAccion.ForeColor = System.Drawing.Color.White;
-            this.desplegableAccion.FormattingEnabled = true;
-            this.desplegableAccion.Location = new System.Drawing.Point(836, 478);
-            this.desplegableAccion.Name = "desplegableAccion";
-            this.desplegableAccion.Size = new System.Drawing.Size(343, 29);
-            this.desplegableAccion.TabIndex = 7;
-            // 
-            // tituloAccion
-            // 
-            this.tituloAccion.AutoSize = true;
-            this.tituloAccion.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloAccion.ForeColor = System.Drawing.Color.White;
-            this.tituloAccion.Location = new System.Drawing.Point(740, 480);
-            this.tituloAccion.Name = "tituloAccion";
-            this.tituloAccion.Size = new System.Drawing.Size(90, 23);
-            this.tituloAccion.TabIndex = 16;
-            this.tituloAccion.Text = "Accion: ";
             // 
             // btnRegistrarPedido
             // 
@@ -371,6 +361,121 @@ namespace AppLibertad
             this.btnMinimizarInterfaz.TabStop = false;
             this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
             // 
+            // tbCliente
+            // 
+            this.tbCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCliente.ForeColor = System.Drawing.Color.White;
+            this.tbCliente.Location = new System.Drawing.Point(309, 189);
+            this.tbCliente.Name = "tbCliente";
+            this.tbCliente.Size = new System.Drawing.Size(304, 25);
+            this.tbCliente.TabIndex = 30;
+            this.tbCliente.Text = "Cliente";
+            this.tbCliente.Enter += new System.EventHandler(this.tbCliente_Enter);
+            this.tbCliente.Leave += new System.EventHandler(this.tbCliente_Leave);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(284, 220);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(329, 15);
+            this.pictureBox6.TabIndex = 31;
+            this.pictureBox6.TabStop = false;
+            // 
+            // tbLocalidad
+            // 
+            this.tbLocalidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbLocalidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLocalidad.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLocalidad.ForeColor = System.Drawing.Color.White;
+            this.tbLocalidad.Location = new System.Drawing.Point(740, 478);
+            this.tbLocalidad.Name = "tbLocalidad";
+            this.tbLocalidad.Size = new System.Drawing.Size(308, 25);
+            this.tbLocalidad.TabIndex = 32;
+            this.tbLocalidad.Text = "Localidad";
+            this.tbLocalidad.Enter += new System.EventHandler(this.tbLocalidad_Enter);
+            this.tbLocalidad.Leave += new System.EventHandler(this.tbLocalidad_Leave);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(719, 509);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(329, 18);
+            this.pictureBox7.TabIndex = 33;
+            this.pictureBox7.TabStop = false;
+            // 
+            // tbProvincia
+            // 
+            this.tbProvincia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbProvincia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbProvincia.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProvincia.ForeColor = System.Drawing.Color.White;
+            this.tbProvincia.Location = new System.Drawing.Point(1118, 478);
+            this.tbProvincia.Name = "tbProvincia";
+            this.tbProvincia.Size = new System.Drawing.Size(295, 25);
+            this.tbProvincia.TabIndex = 34;
+            this.tbProvincia.Text = "Provincia";
+            this.tbProvincia.Enter += new System.EventHandler(this.tbProvincia_Enter);
+            this.tbProvincia.Leave += new System.EventHandler(this.tbProvincia_Leave);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(1097, 509);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(329, 18);
+            this.pictureBox8.TabIndex = 35;
+            this.pictureBox8.TabStop = false;
+            // 
+            // tbCosto
+            // 
+            this.tbCosto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbCosto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCosto.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCosto.ForeColor = System.Drawing.Color.White;
+            this.tbCosto.Location = new System.Drawing.Point(740, 189);
+            this.tbCosto.Name = "tbCosto";
+            this.tbCosto.Size = new System.Drawing.Size(304, 25);
+            this.tbCosto.TabIndex = 36;
+            this.tbCosto.Text = "Costo";
+            this.tbCosto.Enter += new System.EventHandler(this.tbCosto_Enter);
+            this.tbCosto.Leave += new System.EventHandler(this.tbCosto_Leave);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(719, 220);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(329, 15);
+            this.pictureBox9.TabIndex = 37;
+            this.pictureBox9.TabStop = false;
+            // 
+            // tbPrecioVenta
+            // 
+            this.tbPrecioVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbPrecioVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrecioVenta.ForeColor = System.Drawing.Color.White;
+            this.tbPrecioVenta.Location = new System.Drawing.Point(1118, 189);
+            this.tbPrecioVenta.Name = "tbPrecioVenta";
+            this.tbPrecioVenta.Size = new System.Drawing.Size(304, 25);
+            this.tbPrecioVenta.TabIndex = 38;
+            this.tbPrecioVenta.Text = "Precio de Venta";
+            this.tbPrecioVenta.Enter += new System.EventHandler(this.tbPrecioVenta_Enter);
+            this.tbPrecioVenta.Leave += new System.EventHandler(this.tbPrecioVenta_Leave);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(1097, 220);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(329, 15);
+            this.pictureBox10.TabIndex = 39;
+            this.pictureBox10.TabStop = false;
+            // 
             // VentanaInterfazUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -380,6 +485,16 @@ namespace AppLibertad
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1800, 650);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.tbPrecioVenta);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.tbCosto);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.tbProvincia);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.tbLocalidad);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.tbCliente);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -389,8 +504,6 @@ namespace AppLibertad
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnNuevoPedido);
             this.Controls.Add(this.btnRegistrarPedido);
-            this.Controls.Add(this.tituloAccion);
-            this.Controls.Add(this.desplegableAccion);
             this.Controls.Add(this.tbDNI);
             this.Controls.Add(this.tbDestinatario);
             this.Controls.Add(this.tbDomicilio);
@@ -416,6 +529,11 @@ namespace AppLibertad
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,8 +551,6 @@ namespace AppLibertad
         private System.Windows.Forms.TextBox tbDomicilio;
         private System.Windows.Forms.TextBox tbDestinatario;
         private System.Windows.Forms.TextBox tbDNI;
-        private System.Windows.Forms.ComboBox desplegableAccion;
-        private System.Windows.Forms.Label tituloAccion;
         private System.Windows.Forms.Button btnRegistrarPedido;
         private System.Windows.Forms.Button btnNuevoPedido;
         private System.Windows.Forms.Button btnSalir;
@@ -447,5 +563,15 @@ namespace AppLibertad
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button lnkImportar1;
+        private System.Windows.Forms.TextBox tbCliente;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.TextBox tbLocalidad;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.TextBox tbProvincia;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.TextBox tbCosto;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.TextBox tbPrecioVenta;
+        private System.Windows.Forms.PictureBox pictureBox10;
     }
 }

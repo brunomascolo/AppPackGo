@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using AppPackGo;
 
-namespace AppLibertad
+namespace AppPackGo
 {
     public partial class VentanaConsultas : Form
     {

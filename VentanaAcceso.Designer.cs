@@ -1,5 +1,5 @@
 ﻿
-namespace AppLibertad
+namespace AppPackGo
 {
     partial class VentanaAcceso
     {

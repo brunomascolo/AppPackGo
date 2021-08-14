@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using AppPackGo;
 
-namespace AppLibertad
+namespace AppPackGo
 {
 
 
@@ -42,8 +42,7 @@ namespace AppLibertad
 
         private void VentanaInterfazUsuario_Load(object sender, EventArgs e)
         {
-            habilitar(false);
-            cargardesplegable(desplegableAccion, "ACCIONES");
+            habilitar(false);            
             btnRegistrarPedido.Enabled = false;
         }
 
@@ -54,11 +53,14 @@ namespace AppLibertad
             tbNpedido.Enabled = x;
             tbDestinatario.Enabled = x;
             tbDNI.Enabled = x;
-            tbDomicilio.Enabled = x;
-            desplegableAccion.Enabled = x;
+            tbDomicilio.Enabled = x;            
             btnNuevoPedido.Enabled = !x;
             btnRegistrarPedido.Enabled = x;
-
+            tbCliente.Enabled = x;
+            tbCosto.Enabled = x;
+            tbPrecioVenta.Enabled = x;
+            tbProvincia.Enabled = x;
+            tbLocalidad.Enabled = x;
         }
 
 
@@ -70,7 +72,11 @@ namespace AppLibertad
             tbDomicilio.Text = "";
             fechaCreacion.Value = DateTime.Now;
             fechaEnvio.Value = DateTime.Now;
-            desplegableAccion.SelectedIndex = 0;
+            tbCliente.Text = "";
+            tbProvincia.Text = "";
+            tbLocalidad.Text = "";
+            tbCosto.Text = "";
+            tbPrecioVenta.Text = "";
 
         }
 
@@ -82,18 +88,16 @@ namespace AppLibertad
             tbDomicilio.Text = "Domicilio: (Calle, Numero, Localidad)";
             fechaCreacion.Value = DateTime.Now;
             fechaEnvio.Value = DateTime.Now;
-            desplegableAccion.SelectedIndex = 0;
+            tbCliente.Text = "Cliente";
+            tbProvincia.Text = "Provincia";
+            tbLocalidad.Text = "Localidad";
+            tbCosto.Text = "Costo";
+            tbPrecioVenta.Text = "Precio de Venta";
+
 
         }
     
-        private void cargardesplegable(ComboBox combo, string acciones)
-        {
-            DataTable tabla = oBD.consultarBDD("select * from " + acciones);
-            combo.DataSource = tabla;
-            combo.ValueMember = tabla.Columns[0].ColumnName;
-            combo.DisplayMember = tabla.Columns[1].ColumnName;
-            combo.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
+      
 
         private void btnRegistrarPedido_Click(object sender, EventArgs e)
         {
@@ -109,11 +113,38 @@ namespace AppLibertad
                 MessageBox.Show("Debe ingresar un Destinatario");
                 return;
             }
-            if (desplegableAccion.SelectedIndex < 0)
+           
+            if (tbCliente.Text == "")
             {
-                MessageBox.Show("Debe ingresar una accion");
+                MessageBox.Show("Debe ingresar un Cliente");
                 return;
             }
+
+            if (tbProvincia.Text == "")
+            {
+                MessageBox.Show("Debe ingresar una Provincia");
+                return;
+
+            }
+
+            if(tbCosto.Text =="")
+            {
+                MessageBox.Show("Debe ingresar el Costo");
+                return;
+            }
+
+            if(tbPrecioVenta.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Precio de Venta");
+                return;
+            }
+
+            if(tbLocalidad.Text =="")
+            {
+                MessageBox.Show("Debe ingresar una Localidad");
+                return;
+            }
+
             if (tbDNI.Text == "")
             {
                 MessageBox.Show("Debe ingresar un DNI");
@@ -135,32 +166,38 @@ namespace AppLibertad
             {
                 int DNI = Convert.ToInt32(tbDNI.Text);
                 int npedido = Convert.ToInt32(tbNpedido.Text);
+                float costo = float.Parse(tbCosto.Text);
+                float precio = float.Parse(tbPrecioVenta.Text);
+                
 
             }
 
             catch (Exception)
             {
-                MessageBox.Show("El numero de pedido y el DNI solo deben contener numeros");
+                MessageBox.Show("Las casillas DNI, Numero de Pedido, Costo y Precio solo aceptan numeros");
                 return;
             }
 
             Viaje v = new Viaje();
-            v.pnpedido = Convert.ToInt32(tbNpedido.Text);
-            v.pdomicilio = tbDomicilio.Text;
-            v.paccion = Convert.ToInt32(desplegableAccion.SelectedValue);
+            v.pcliente = tbCliente.Text;
             v.pfechacreacion = Convert.ToDateTime(fechaCreacion.Value);
             v.pfechaenvio = Convert.ToDateTime(fechaEnvio.Value);
+            v.pnpedido = Convert.ToInt32(tbNpedido.Text);
             v.pdestinatario = tbDestinatario.Text;
             v.pdni = Convert.ToInt32(tbDNI.Text);
+            v.pdomicilio = tbDomicilio.Text;
+            v.plocalidad = tbLocalidad.Text.ToUpper();
+            v.pprovincia = tbProvincia.Text.ToUpper();
+            v.pcosto = float.Parse(tbCosto.Text);
+            v.pprecio_venta = float.Parse(tbPrecioVenta.Text);
             v.pusuario = tablaUsuario.Rows[0][0].ToString();
-            v.pidsucursal = Convert.ToInt32(tablaUsuario.Rows[0][2]);
-            v.pidprov = Convert.ToInt32(tablaUsuario.Rows[0][3]);
+           
 
             try
             {
-                if (nuevo && v.paccion == 1 || v.paccion == 3)
+                if (nuevo )
                 {
-                    string consulta = "insert into ENVIOS(fecha_envio, num_pedido, destinatario, dni, domicilio, usuario, id_sucursal, id_prov, fecha_creacion, id_accion) values (@fechaenvio, @numpedido, @destinatario, @dni, @domicilio, @usuario, @idsucursal, @idprov, @fechacreacion, @idaccion);";
+                    string consulta = "insert into ENVIOS(cliente, fecha_creacion, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario) values (@cliente, @fecha_creacion, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario);";
                     oBD.actualizarConParametros(consulta, v);                  
 
                     habilitar(false);
@@ -172,32 +209,8 @@ namespace AppLibertad
 
                 }
 
-                else
-                {
-                    int pedido = Convert.ToInt32(tbNpedido.Text);
-                    var consulta = "SELECT * from ENVIOS where num_pedido = " + pedido + ";";
-
-                    DataTable tablacheck = new DataTable();
-                    tablacheck = oBD.consultarBDD(consulta);
-
-                    if (tablacheck.Rows.Count != 0)
-                    {                      
-
-                        string actualizar = "UPDATE ENVIOS SET fecha_envio = @fechaenvio, destinatario = @destinatario, dni = @dni, domicilio = @domicilio, usuario = @usuario, id_sucursal = @idsucursal, id_prov = @idprov, fecha_creacion = @fechacreacion, id_accion = @idaccion where num_pedido = " + pedido + ";";
-                        oBD.actualizarConParametros(actualizar, v);                       
-
-                        habilitar(false);
-                        limpiar();
-                        inicializar();
-                        nuevo = true;
-                        btnRegistrarPedido.Enabled = false;
-                        MessageBox.Show("Operacion Exitosa");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Pedido inexistente");
-                    }
-                }
+               
+                
 
             }
 
@@ -286,7 +299,7 @@ namespace AppLibertad
 
         private void tbDomicilio_Enter(object sender, EventArgs e)
         {
-            if (tbDomicilio.Text == "Domicilio: (Calle, Numero, Localidad)")
+            if (tbDomicilio.Text == "Domicilio: (Calle, Numero)")
             {
                 tbDomicilio.Text = "";
                 tbDomicilio.ForeColor = Color.White;
@@ -298,7 +311,7 @@ namespace AppLibertad
         {
             if (tbDomicilio.Text == "")
             {
-                tbDomicilio.Text = "Domicilio: (Calle, Numero, Localidad)";
+                tbDomicilio.Text = "Domicilio: (Calle, Numero)";
                 tbDomicilio.ForeColor = Color.White;
             }
         }
@@ -323,10 +336,106 @@ namespace AppLibertad
 
         private void lnkImportar1_Click(object sender, EventArgs e)
         {
-            //VentanaImportar importar = new VentanaImportar(tablaUsuario);
-            //importar.Show();
+            VentanaImportar importar = new VentanaImportar(tablaUsuario);
+            importar.Show();
 
-            //this.Hide();
+            this.Hide();
+        }
+
+        private void tbCliente_Enter(object sender, EventArgs e)
+        {
+            if (tbCliente.Text == "Cliente")
+            {
+                tbCliente.Text = "";
+                tbCliente.ForeColor = Color.White;
+
+            }
+        }
+
+        private void tbCliente_Leave(object sender, EventArgs e)
+        {
+            if (tbCliente.Text == "")
+            {
+                tbCliente.Text = "Cliente";
+                tbCliente.ForeColor = Color.White;
+            }
+        }
+
+        private void tbLocalidad_Enter(object sender, EventArgs e)
+        {
+            if (tbLocalidad.Text == "Localidad")
+            {
+                tbLocalidad.Text = "";
+                tbLocalidad.ForeColor = Color.White;
+
+            }
+        }
+
+        private void tbLocalidad_Leave(object sender, EventArgs e)
+        {
+            if (tbLocalidad.Text == "")
+            {
+                tbLocalidad.Text = "Localidad";
+                tbLocalidad.ForeColor = Color.White;
+            }
+        }
+
+        private void tbCosto_Enter(object sender, EventArgs e)
+        {
+            if (tbCosto.Text == "Costo")
+            {
+                tbCosto.Text = "";
+                tbCosto.ForeColor = Color.White;
+
+            }
+        }
+
+        private void tbCosto_Leave(object sender, EventArgs e)
+        {
+            if (tbCosto.Text == "")
+            {
+                tbCosto.Text = "Costo";
+                tbCosto.ForeColor = Color.White;
+            }
+
+        }
+
+        private void tbPrecioVenta_Enter(object sender, EventArgs e)
+        {
+            if (tbPrecioVenta.Text == "Precio de Venta")
+            {
+                tbPrecioVenta.Text = "";
+                tbPrecioVenta.ForeColor = Color.White;
+
+            }
+        }
+
+        private void tbPrecioVenta_Leave(object sender, EventArgs e)
+        {
+            if (tbPrecioVenta.Text == "")
+            {
+                tbPrecioVenta.Text = "Precio de Venta";
+                tbPrecioVenta.ForeColor = Color.White;
+            }
+        }
+
+        private void tbProvincia_Enter(object sender, EventArgs e)
+        {
+            if (tbProvincia.Text == "Provincia")
+            {
+                tbProvincia.Text = "";
+                tbProvincia.ForeColor = Color.White;
+
+            }
+        }
+
+        private void tbProvincia_Leave(object sender, EventArgs e)
+        {
+            if (tbProvincia.Text == "")
+            {
+                tbProvincia.Text = "Provincia";
+                tbProvincia.ForeColor = Color.White;
+            }
         }
     }
 }
