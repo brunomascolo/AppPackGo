@@ -16,7 +16,7 @@ namespace AppPackGo
 
         DataTable tablaUsuario = new DataTable();
 
-        
+
 
         public VentanaInterfazUsuario(DataTable tablaUsuario)
         {
@@ -209,6 +209,7 @@ namespace AppPackGo
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+    
 
         private void VentanaInterfazUsuario_MouseDown(object sender, MouseEventArgs e)
         {
@@ -396,10 +397,6 @@ namespace AppPackGo
                     MessageBox.Show("Operacion Exitosa");
 
                 }
-
-
-
-
             }
 
             catch (Exception ex)

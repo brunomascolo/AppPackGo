@@ -41,8 +41,6 @@ namespace AppPackGo
             this.label1 = new System.Windows.Forms.Label();
             this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
             this.dgvImportar = new System.Windows.Forms.DataGridView();
-            this.btnSalir4 = new System.Windows.Forms.Button();
-            this.btnImportar = new System.Windows.Forms.Button();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaEnvio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +52,8 @@ namespace AppPackGo
             this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSalir4 = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
@@ -151,13 +151,13 @@ namespace AppPackGo
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnBuscar.ForeColor = System.Drawing.Color.LightGray;
-            this.btnBuscar.Location = new System.Drawing.Point(1135, 124);
+            this.btnBuscar.Location = new System.Drawing.Point(1135, 125);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(60, 33);
+            this.btnBuscar.Size = new System.Drawing.Size(90, 41);
             this.btnBuscar.TabIndex = 38;
-            this.btnBuscar.Text = "...";
+            this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -216,40 +216,6 @@ namespace AppPackGo
             this.dgvImportar.RowTemplate.Height = 28;
             this.dgvImportar.Size = new System.Drawing.Size(1162, 348);
             this.dgvImportar.TabIndex = 40;
-            // 
-            // btnSalir4
-            // 
-            this.btnSalir4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.btnSalir4.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnSalir4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnSalir4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnSalir4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir4.ForeColor = System.Drawing.Color.LightGray;
-            this.btnSalir4.Location = new System.Drawing.Point(1135, 589);
-            this.btnSalir4.Name = "btnSalir4";
-            this.btnSalir4.Size = new System.Drawing.Size(243, 43);
-            this.btnSalir4.TabIndex = 42;
-            this.btnSalir4.Text = "Salir";
-            this.btnSalir4.UseVisualStyleBackColor = false;
-            this.btnSalir4.Click += new System.EventHandler(this.btnSalir4_Click);
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.btnImportar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnImportar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportar.ForeColor = System.Drawing.Color.LightGray;
-            this.btnImportar.Location = new System.Drawing.Point(294, 589);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(243, 43);
-            this.btnImportar.TabIndex = 41;
-            this.btnImportar.Text = "Importar Excel";
-            this.btnImportar.UseVisualStyleBackColor = false;
-            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // Cliente
             // 
@@ -327,6 +293,40 @@ namespace AppPackGo
             this.Precioventa.MinimumWidth = 8;
             this.Precioventa.Name = "Precioventa";
             this.Precioventa.Width = 150;
+            // 
+            // btnSalir4
+            // 
+            this.btnSalir4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.btnSalir4.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnSalir4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnSalir4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnSalir4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir4.ForeColor = System.Drawing.Color.LightGray;
+            this.btnSalir4.Location = new System.Drawing.Point(1135, 589);
+            this.btnSalir4.Name = "btnSalir4";
+            this.btnSalir4.Size = new System.Drawing.Size(243, 43);
+            this.btnSalir4.TabIndex = 42;
+            this.btnSalir4.Text = "Salir";
+            this.btnSalir4.UseVisualStyleBackColor = false;
+            this.btnSalir4.Click += new System.EventHandler(this.btnSalir4_Click);
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.btnImportar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnImportar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportar.ForeColor = System.Drawing.Color.LightGray;
+            this.btnImportar.Location = new System.Drawing.Point(294, 589);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(243, 43);
+            this.btnImportar.TabIndex = 41;
+            this.btnImportar.Text = "Importar Excel";
+            this.btnImportar.UseVisualStyleBackColor = false;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // VentanaImportar
             // 
