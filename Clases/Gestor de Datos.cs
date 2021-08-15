@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using AppPackGo.Clases;
+using MySql.Data.MySqlClient;
 using System.Data;
 
 
@@ -122,9 +123,20 @@ namespace AppPackGo
             this.desconectarBD();
         }
 
+        public void actualizarConParametrosCliente(string consultaSQL, Clientes c)
+        {
+            conectarBD();
 
+            this.comando.CommandText = consultaSQL;
 
+            this.comando.Parameters.Clear();
+            this.comando.Parameters.AddWithValue("@cliente", c.pCliente);
+            this.comando.Parameters.AddWithValue("@provincia", c.pProvincia);
 
+            this.comando.ExecuteNonQuery();
+
+            this.desconectarBD();
+        }
 
     }
 

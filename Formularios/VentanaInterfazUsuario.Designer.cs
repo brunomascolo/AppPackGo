@@ -45,35 +45,36 @@ namespace AppPackGo
             this.panel1 = new System.Windows.Forms.Panel();
             this.lnkImportar1 = new System.Windows.Forms.Button();
             this.lnkConsultas1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lnkRegistrar1 = new System.Windows.Forms.Button();
+            this.tbCliente = new System.Windows.Forms.TextBox();
+            this.tbLocalidad = new System.Windows.Forms.TextBox();
+            this.tbProvincia = new System.Windows.Forms.TextBox();
+            this.tbCosto = new System.Windows.Forms.TextBox();
+            this.tbPrecioVenta = new System.Windows.Forms.TextBox();
+            this.lnkCrear1 = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
-            this.tbCliente = new System.Windows.Forms.TextBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.tbLocalidad = new System.Windows.Forms.TextBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.tbProvincia = new System.Windows.Forms.TextBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.tbCosto = new System.Windows.Forms.TextBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.tbPrecioVenta = new System.Windows.Forms.TextBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // fechaCreacion
@@ -244,6 +245,7 @@ namespace AppPackGo
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.lnkCrear1);
             this.panel1.Controls.Add(this.lnkImportar1);
             this.panel1.Controls.Add(this.lnkConsultas1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -287,16 +289,6 @@ namespace AppPackGo
             this.lnkConsultas1.UseVisualStyleBackColor = false;
             this.lnkConsultas1.Click += new System.EventHandler(this.lnkConsultas1_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
-            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // lnkRegistrar1
             // 
             this.lnkRegistrar1.BackColor = System.Drawing.Color.Silver;
@@ -312,6 +304,138 @@ namespace AppPackGo
             this.lnkRegistrar1.TabIndex = 29;
             this.lnkRegistrar1.Text = "Registrar Envios";
             this.lnkRegistrar1.UseVisualStyleBackColor = false;
+            // 
+            // tbCliente
+            // 
+            this.tbCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCliente.ForeColor = System.Drawing.Color.White;
+            this.tbCliente.Location = new System.Drawing.Point(309, 189);
+            this.tbCliente.Name = "tbCliente";
+            this.tbCliente.Size = new System.Drawing.Size(304, 25);
+            this.tbCliente.TabIndex = 30;
+            this.tbCliente.Text = "Cliente";
+            this.tbCliente.Enter += new System.EventHandler(this.tbCliente_Enter);
+            this.tbCliente.Leave += new System.EventHandler(this.tbCliente_Leave);
+            // 
+            // tbLocalidad
+            // 
+            this.tbLocalidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbLocalidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbLocalidad.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLocalidad.ForeColor = System.Drawing.Color.White;
+            this.tbLocalidad.Location = new System.Drawing.Point(740, 478);
+            this.tbLocalidad.Name = "tbLocalidad";
+            this.tbLocalidad.Size = new System.Drawing.Size(308, 25);
+            this.tbLocalidad.TabIndex = 32;
+            this.tbLocalidad.Text = "Localidad";
+            this.tbLocalidad.Enter += new System.EventHandler(this.tbLocalidad_Enter);
+            this.tbLocalidad.Leave += new System.EventHandler(this.tbLocalidad_Leave);
+            // 
+            // tbProvincia
+            // 
+            this.tbProvincia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbProvincia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbProvincia.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProvincia.ForeColor = System.Drawing.Color.White;
+            this.tbProvincia.Location = new System.Drawing.Point(1118, 478);
+            this.tbProvincia.Name = "tbProvincia";
+            this.tbProvincia.Size = new System.Drawing.Size(295, 25);
+            this.tbProvincia.TabIndex = 34;
+            this.tbProvincia.Text = "Provincia";
+            this.tbProvincia.Enter += new System.EventHandler(this.tbProvincia_Enter);
+            this.tbProvincia.Leave += new System.EventHandler(this.tbProvincia_Leave);
+            // 
+            // tbCosto
+            // 
+            this.tbCosto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbCosto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCosto.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCosto.ForeColor = System.Drawing.Color.White;
+            this.tbCosto.Location = new System.Drawing.Point(740, 189);
+            this.tbCosto.Name = "tbCosto";
+            this.tbCosto.Size = new System.Drawing.Size(304, 25);
+            this.tbCosto.TabIndex = 36;
+            this.tbCosto.Text = "Costo";
+            this.tbCosto.Enter += new System.EventHandler(this.tbCosto_Enter);
+            this.tbCosto.Leave += new System.EventHandler(this.tbCosto_Leave);
+            // 
+            // tbPrecioVenta
+            // 
+            this.tbPrecioVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbPrecioVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrecioVenta.ForeColor = System.Drawing.Color.White;
+            this.tbPrecioVenta.Location = new System.Drawing.Point(1118, 189);
+            this.tbPrecioVenta.Name = "tbPrecioVenta";
+            this.tbPrecioVenta.Size = new System.Drawing.Size(304, 25);
+            this.tbPrecioVenta.TabIndex = 38;
+            this.tbPrecioVenta.Text = "Precio de Venta";
+            this.tbPrecioVenta.Enter += new System.EventHandler(this.tbPrecioVenta_Enter);
+            this.tbPrecioVenta.Leave += new System.EventHandler(this.tbPrecioVenta_Leave);
+            // 
+            // lnkCrear1
+            // 
+            this.lnkCrear1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lnkCrear1.FlatAppearance.BorderSize = 0;
+            this.lnkCrear1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.lnkCrear1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.lnkCrear1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lnkCrear1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkCrear1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.lnkCrear1.Location = new System.Drawing.Point(12, 360);
+            this.lnkCrear1.Name = "lnkCrear1";
+            this.lnkCrear1.Size = new System.Drawing.Size(234, 43);
+            this.lnkCrear1.TabIndex = 31;
+            this.lnkCrear1.Text = "Crear Nuevo Cliente";
+            this.lnkCrear1.UseVisualStyleBackColor = false;
+            this.lnkCrear1.Click += new System.EventHandler(this.lnkCrear1_Click);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(1097, 220);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(329, 15);
+            this.pictureBox10.TabIndex = 39;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(719, 220);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(329, 15);
+            this.pictureBox9.TabIndex = 37;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(1097, 509);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(329, 18);
+            this.pictureBox8.TabIndex = 35;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(719, 509);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(329, 18);
+            this.pictureBox7.TabIndex = 33;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(284, 220);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(329, 15);
+            this.pictureBox6.TabIndex = 31;
+            this.pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -361,120 +485,15 @@ namespace AppPackGo
             this.btnMinimizarInterfaz.TabStop = false;
             this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
             // 
-            // tbCliente
+            // pictureBox1
             // 
-            this.tbCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.tbCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbCliente.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCliente.ForeColor = System.Drawing.Color.White;
-            this.tbCliente.Location = new System.Drawing.Point(309, 189);
-            this.tbCliente.Name = "tbCliente";
-            this.tbCliente.Size = new System.Drawing.Size(304, 25);
-            this.tbCliente.TabIndex = 30;
-            this.tbCliente.Text = "Cliente";
-            this.tbCliente.Enter += new System.EventHandler(this.tbCliente_Enter);
-            this.tbCliente.Leave += new System.EventHandler(this.tbCliente_Leave);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(284, 220);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(329, 15);
-            this.pictureBox6.TabIndex = 31;
-            this.pictureBox6.TabStop = false;
-            // 
-            // tbLocalidad
-            // 
-            this.tbLocalidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.tbLocalidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbLocalidad.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLocalidad.ForeColor = System.Drawing.Color.White;
-            this.tbLocalidad.Location = new System.Drawing.Point(740, 478);
-            this.tbLocalidad.Name = "tbLocalidad";
-            this.tbLocalidad.Size = new System.Drawing.Size(308, 25);
-            this.tbLocalidad.TabIndex = 32;
-            this.tbLocalidad.Text = "Localidad";
-            this.tbLocalidad.Enter += new System.EventHandler(this.tbLocalidad_Enter);
-            this.tbLocalidad.Leave += new System.EventHandler(this.tbLocalidad_Leave);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(719, 509);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(329, 18);
-            this.pictureBox7.TabIndex = 33;
-            this.pictureBox7.TabStop = false;
-            // 
-            // tbProvincia
-            // 
-            this.tbProvincia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.tbProvincia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbProvincia.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbProvincia.ForeColor = System.Drawing.Color.White;
-            this.tbProvincia.Location = new System.Drawing.Point(1118, 478);
-            this.tbProvincia.Name = "tbProvincia";
-            this.tbProvincia.Size = new System.Drawing.Size(295, 25);
-            this.tbProvincia.TabIndex = 34;
-            this.tbProvincia.Text = "Provincia";
-            this.tbProvincia.Enter += new System.EventHandler(this.tbProvincia_Enter);
-            this.tbProvincia.Leave += new System.EventHandler(this.tbProvincia_Leave);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(1097, 509);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(329, 18);
-            this.pictureBox8.TabIndex = 35;
-            this.pictureBox8.TabStop = false;
-            // 
-            // tbCosto
-            // 
-            this.tbCosto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.tbCosto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbCosto.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCosto.ForeColor = System.Drawing.Color.White;
-            this.tbCosto.Location = new System.Drawing.Point(740, 189);
-            this.tbCosto.Name = "tbCosto";
-            this.tbCosto.Size = new System.Drawing.Size(304, 25);
-            this.tbCosto.TabIndex = 36;
-            this.tbCosto.Text = "Costo";
-            this.tbCosto.Enter += new System.EventHandler(this.tbCosto_Enter);
-            this.tbCosto.Leave += new System.EventHandler(this.tbCosto_Leave);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(719, 220);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(329, 15);
-            this.pictureBox9.TabIndex = 37;
-            this.pictureBox9.TabStop = false;
-            // 
-            // tbPrecioVenta
-            // 
-            this.tbPrecioVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.tbPrecioVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPrecioVenta.ForeColor = System.Drawing.Color.White;
-            this.tbPrecioVenta.Location = new System.Drawing.Point(1118, 189);
-            this.tbPrecioVenta.Name = "tbPrecioVenta";
-            this.tbPrecioVenta.Size = new System.Drawing.Size(304, 25);
-            this.tbPrecioVenta.TabIndex = 38;
-            this.tbPrecioVenta.Text = "Precio de Venta";
-            this.tbPrecioVenta.Enter += new System.EventHandler(this.tbPrecioVenta_Enter);
-            this.tbPrecioVenta.Leave += new System.EventHandler(this.tbPrecioVenta_Leave);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(1097, 220);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(329, 15);
-            this.pictureBox10.TabIndex = 39;
-            this.pictureBox10.TabStop = false;
+            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
+            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // VentanaInterfazUsuario
             // 
@@ -523,17 +542,17 @@ namespace AppPackGo
             this.Load += new System.EventHandler(this.VentanaInterfazUsuario_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VentanaInterfazUsuario_MouseDown);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -573,5 +592,6 @@ namespace AppPackGo
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.TextBox tbPrecioVenta;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Button lnkCrear1;
     }
 }

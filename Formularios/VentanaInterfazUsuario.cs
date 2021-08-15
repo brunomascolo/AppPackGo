@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppPackGo.Formularios;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -362,30 +363,35 @@ namespace AppPackGo
                 MessageBox.Show("Las casillas DNI, Numero de Pedido, Costo y Precio solo aceptan numeros");
                 return;
             }
-
-            //registro a la propiedad los campos ya validados
-
-            Viaje v = new Viaje();
-            v.pcliente = tbCliente.Text.ToUpper();
-            v.pfechacreacion = Convert.ToDateTime(fechaCreacion.Value);
-            v.pfechaenvio = Convert.ToDateTime(fechaEnvio.Value);
-            v.pnpedido = Convert.ToInt32(tbNpedido.Text);
-            v.pdestinatario = tbDestinatario.Text;
-            v.pdni = Convert.ToInt32(tbDNI.Text);
-            v.pdomicilio = tbDomicilio.Text;
-            v.plocalidad = tbLocalidad.Text.ToUpper();
-            v.pprovincia = tbProvincia.Text.ToUpper();
-            v.pcosto = float.Parse(tbCosto.Text);
-            v.pprecio_venta = float.Parse(tbPrecioVenta.Text);
-            v.pusuario = tablaUsuario.Rows[0][0].ToString();
-
-
             try
             {
-                if (nuevo)
+                string cliente = tbCliente.Text;
+                string consulta1 = "SELECT * from CLIENTES where nombre_cliente like '" + cliente + "';";
+                DataTable tablaCliente = new DataTable();
+                tablaCliente = oBD.consultarBDD(consulta1);
+                if (tablaCliente.Rows.Count != 0)
+                {
+
+                    //registro a la propiedad los campos ya validados
+
+                    Viaje v = new Viaje();
+                    v.pcliente = tbCliente.Text.ToUpper();
+                    v.pfechacreacion = Convert.ToDateTime(fechaCreacion.Value);
+                    v.pfechaenvio = Convert.ToDateTime(fechaEnvio.Value);
+                    v.pnpedido = Convert.ToInt32(tbNpedido.Text);
+                    v.pdestinatario = tbDestinatario.Text;
+                    v.pdni = Convert.ToInt32(tbDNI.Text);
+                    v.pdomicilio = tbDomicilio.Text;
+                    v.plocalidad = tbLocalidad.Text.ToUpper();
+                    v.pprovincia = tbProvincia.Text.ToUpper();
+                    v.pcosto = float.Parse(tbCosto.Text);
+                    v.pprecio_venta = float.Parse(tbPrecioVenta.Text);
+                    v.pusuario = tablaUsuario.Rows[0][0].ToString();
+
+
 
                     //Inserto en la BDD
-                {
+
                     string consulta = "insert into ENVIOS(cliente, fecha_creacion, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario) values (@cliente, @fecha_creacion, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario);";
                     oBD.actualizarConParametros(consulta, v);
 
@@ -397,7 +403,25 @@ namespace AppPackGo
                     MessageBox.Show("Operacion Exitosa");
 
                 }
+
+                else
+                {
+                   DialogResult dialogo = MessageBox.Show("Cliente inexistente en la Base de Datos. Desea Crearlo?", "Cliente Inexistente", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                    if(dialogo == DialogResult.Yes)
+                    {
+                        ClienteNuevo clientenuevo = new ClienteNuevo();
+                        clientenuevo.Show();
+
+                    }
+
+                    else
+                    {
+                        return;
+                    }
+                }
             }
+
 
             catch (Exception ex)
             {
@@ -445,8 +469,14 @@ namespace AppPackGo
             this.Hide();
         }
 
+        private void lnkCrear1_Click(object sender, EventArgs e)
+        {
+            ClienteNuevo clientenuevo = new ClienteNuevo();
+            clientenuevo.Show();
+        }
+
         //Termina funcionalidades de los botones
 
-       
+
     }
 }

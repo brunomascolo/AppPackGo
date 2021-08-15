@@ -29,29 +29,31 @@ namespace AppPackGo
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaConsultas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lnkImportar2 = new System.Windows.Forms.Button();
             this.lnkConsultas2 = new System.Windows.Forms.Button();
             this.lnkRegistrar2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tituloConsultaEnvios = new System.Windows.Forms.Label();
-            this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
             this.btnSalir3 = new System.Windows.Forms.Button();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lnkCrear1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.lnkCrear1);
             this.panel1.Controls.Add(this.lnkImportar2);
             this.panel1.Controls.Add(this.lnkConsultas2);
             this.panel1.Controls.Add(this.lnkRegistrar2);
@@ -111,16 +113,6 @@ namespace AppPackGo
             this.lnkRegistrar2.UseVisualStyleBackColor = false;
             this.lnkRegistrar2.Click += new System.EventHandler(this.lnkRegistrar2_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
-            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // tituloConsultaEnvios
             // 
             this.tituloConsultaEnvios.AutoSize = true;
@@ -132,18 +124,6 @@ namespace AppPackGo
             this.tituloConsultaEnvios.Size = new System.Drawing.Size(308, 38);
             this.tituloConsultaEnvios.TabIndex = 22;
             this.tituloConsultaEnvios.Text = "Consulta de Envios";
-            // 
-            // btnMinimizarInterfaz
-            // 
-            this.btnMinimizarInterfaz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMinimizarInterfaz.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarInterfaz.Image")));
-            this.btnMinimizarInterfaz.Location = new System.Drawing.Point(1414, 0);
-            this.btnMinimizarInterfaz.Name = "btnMinimizarInterfaz";
-            this.btnMinimizarInterfaz.Size = new System.Drawing.Size(42, 34);
-            this.btnMinimizarInterfaz.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimizarInterfaz.TabIndex = 26;
-            this.btnMinimizarInterfaz.TabStop = false;
-            this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
             // 
             // btnSalir3
             // 
@@ -166,36 +146,36 @@ namespace AppPackGo
             // 
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
             this.dgvConsulta.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsulta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.EnableHeadersVisualStyles = false;
             this.dgvConsulta.GridColor = System.Drawing.Color.SteelBlue;
             this.dgvConsulta.Location = new System.Drawing.Point(294, 131);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConsulta.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsulta.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvConsulta.RowHeadersWidth = 62;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(65)))), ((int)(((byte)(110)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvConsulta.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(65)))), ((int)(((byte)(110)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvConsulta.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvConsulta.RowTemplate.Height = 28;
             this.dgvConsulta.Size = new System.Drawing.Size(1115, 402);
             this.dgvConsulta.TabIndex = 28;
@@ -216,6 +196,45 @@ namespace AppPackGo
             this.btnExportar.Text = "Exportar Excel";
             this.btnExportar.UseVisualStyleBackColor = false;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // btnMinimizarInterfaz
+            // 
+            this.btnMinimizarInterfaz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMinimizarInterfaz.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarInterfaz.Image")));
+            this.btnMinimizarInterfaz.Location = new System.Drawing.Point(1414, 0);
+            this.btnMinimizarInterfaz.Name = "btnMinimizarInterfaz";
+            this.btnMinimizarInterfaz.Size = new System.Drawing.Size(42, 34);
+            this.btnMinimizarInterfaz.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimizarInterfaz.TabIndex = 26;
+            this.btnMinimizarInterfaz.TabStop = false;
+            this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
+            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lnkCrear1
+            // 
+            this.lnkCrear1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lnkCrear1.FlatAppearance.BorderSize = 0;
+            this.lnkCrear1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.lnkCrear1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.lnkCrear1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lnkCrear1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkCrear1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.lnkCrear1.Location = new System.Drawing.Point(12, 360);
+            this.lnkCrear1.Name = "lnkCrear1";
+            this.lnkCrear1.Size = new System.Drawing.Size(234, 43);
+            this.lnkCrear1.TabIndex = 32;
+            this.lnkCrear1.Text = "Crear Nuevo Cliente";
+            this.lnkCrear1.UseVisualStyleBackColor = false;
+            this.lnkCrear1.Click += new System.EventHandler(this.lnkCrear1_Click);
             // 
             // VentanaConsultas
             // 
@@ -239,9 +258,9 @@ namespace AppPackGo
             this.Text = "VentanaConsultas";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VentanaConsultas_MouseDown);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +278,6 @@ namespace AppPackGo
         private System.Windows.Forms.DataGridView dgvConsulta;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Button lnkImportar2;
+        private System.Windows.Forms.Button lnkCrear1;
     }
 }

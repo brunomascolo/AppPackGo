@@ -35,11 +35,9 @@ namespace AppPackGo
             this.lnkConsultas3 = new System.Windows.Forms.Button();
             this.lnkRegistrar3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbUbicacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
             this.dgvImportar = new System.Windows.Forms.DataGridView();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,10 +52,13 @@ namespace AppPackGo
             this.Precioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir4 = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
+            this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lnkCrear1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tituloImportar
@@ -125,6 +126,7 @@ namespace AppPackGo
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.Controls.Add(this.lnkCrear1);
             this.panel1.Controls.Add(this.lnkImportar3);
             this.panel1.Controls.Add(this.lnkConsultas3);
             this.panel1.Controls.Add(this.lnkRegistrar3);
@@ -133,16 +135,6 @@ namespace AppPackGo
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(260, 655);
             this.panel1.TabIndex = 22;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
-            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // btnBuscar
             // 
@@ -182,18 +174,6 @@ namespace AppPackGo
             this.label1.Size = new System.Drawing.Size(91, 23);
             this.label1.TabIndex = 33;
             this.label1.Text = "Archivo:";
-            // 
-            // btnMinimizarInterfaz
-            // 
-            this.btnMinimizarInterfaz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMinimizarInterfaz.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarInterfaz.Image")));
-            this.btnMinimizarInterfaz.Location = new System.Drawing.Point(1414, 0);
-            this.btnMinimizarInterfaz.Name = "btnMinimizarInterfaz";
-            this.btnMinimizarInterfaz.Size = new System.Drawing.Size(42, 34);
-            this.btnMinimizarInterfaz.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimizarInterfaz.TabIndex = 39;
-            this.btnMinimizarInterfaz.TabStop = false;
-            this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
             // 
             // dgvImportar
             // 
@@ -328,6 +308,45 @@ namespace AppPackGo
             this.btnImportar.UseVisualStyleBackColor = false;
             this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
+            // btnMinimizarInterfaz
+            // 
+            this.btnMinimizarInterfaz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMinimizarInterfaz.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarInterfaz.Image")));
+            this.btnMinimizarInterfaz.Location = new System.Drawing.Point(1414, 0);
+            this.btnMinimizarInterfaz.Name = "btnMinimizarInterfaz";
+            this.btnMinimizarInterfaz.Size = new System.Drawing.Size(42, 34);
+            this.btnMinimizarInterfaz.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimizarInterfaz.TabIndex = 39;
+            this.btnMinimizarInterfaz.TabStop = false;
+            this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
+            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lnkCrear1
+            // 
+            this.lnkCrear1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lnkCrear1.FlatAppearance.BorderSize = 0;
+            this.lnkCrear1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.lnkCrear1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.lnkCrear1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lnkCrear1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkCrear1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.lnkCrear1.Location = new System.Drawing.Point(12, 360);
+            this.lnkCrear1.Name = "lnkCrear1";
+            this.lnkCrear1.Size = new System.Drawing.Size(234, 43);
+            this.lnkCrear1.TabIndex = 43;
+            this.lnkCrear1.Text = "Crear Nuevo Cliente";
+            this.lnkCrear1.UseVisualStyleBackColor = false;
+            this.lnkCrear1.Click += new System.EventHandler(this.lnkCrear1_Click);
+            // 
             // VentanaImportar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -353,9 +372,9 @@ namespace AppPackGo
             this.Text = "VentanaImportar";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VentanaImportar_MouseDown);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +406,6 @@ namespace AppPackGo
         private System.Windows.Forms.DataGridViewTextBoxColumn Provincia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precioventa;
+        private System.Windows.Forms.Button lnkCrear1;
     }
 }

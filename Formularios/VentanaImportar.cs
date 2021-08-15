@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppPackGo.Formularios;
+using System;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -153,6 +154,12 @@ namespace AppPackGo
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void lnkCrear1_Click(object sender, EventArgs e)
+        {
+            ClienteNuevo clientenuevo = new ClienteNuevo();
+            clientenuevo.Show();
         }
     }
 }
