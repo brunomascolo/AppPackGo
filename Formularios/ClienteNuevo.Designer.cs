@@ -46,7 +46,7 @@ namespace AppPackGo.Formularios
             this.tituloConsultaEnvios.Location = new System.Drawing.Point(197, 20);
             this.tituloConsultaEnvios.Name = "tituloConsultaEnvios";
             this.tituloConsultaEnvios.Size = new System.Drawing.Size(332, 38);
-            this.tituloConsultaEnvios.TabIndex = 23;
+            this.tituloConsultaEnvios.TabIndex = 27;
             this.tituloConsultaEnvios.Text = "Crear Nuevo Cliente";
             // 
             // tbCrearCliente
@@ -58,7 +58,7 @@ namespace AppPackGo.Formularios
             this.tbCrearCliente.Location = new System.Drawing.Point(38, 127);
             this.tbCrearCliente.Name = "tbCrearCliente";
             this.tbCrearCliente.Size = new System.Drawing.Size(337, 25);
-            this.tbCrearCliente.TabIndex = 24;
+            this.tbCrearCliente.TabIndex = 23;
             this.tbCrearCliente.Text = "Nombre:";
             this.tbCrearCliente.Enter += new System.EventHandler(this.tbCrearCliente_Enter);
             this.tbCrearCliente.Leave += new System.EventHandler(this.tbCrearCliente_Leave);
@@ -72,7 +72,7 @@ namespace AppPackGo.Formularios
             this.comboProvincias.Location = new System.Drawing.Point(394, 127);
             this.comboProvincias.Name = "comboProvincias";
             this.comboProvincias.Size = new System.Drawing.Size(291, 28);
-            this.comboProvincias.TabIndex = 25;
+            this.comboProvincias.TabIndex = 24;
             // 
             // btnCrear
             // 
@@ -86,7 +86,7 @@ namespace AppPackGo.Formularios
             this.btnCrear.Location = new System.Drawing.Point(38, 216);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(121, 43);
-            this.btnCrear.TabIndex = 26;
+            this.btnCrear.TabIndex = 25;
             this.btnCrear.Text = "Crear";
             this.btnCrear.UseVisualStyleBackColor = false;
             this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
@@ -103,7 +103,7 @@ namespace AppPackGo.Formularios
             this.btnSalir.Location = new System.Drawing.Point(562, 216);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(123, 43);
-            this.btnSalir.TabIndex = 27;
+            this.btnSalir.TabIndex = 26;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
