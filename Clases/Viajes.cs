@@ -4,10 +4,9 @@ namespace AppPackGo
 {
 
     class Viaje
-    {
-        private DateTime fechacreacion;
+    {      
         private DateTime fechaenvio;
-        private int npedido;
+        private string npedido;
         private string destinatario;
         private string domicilio;
         private int dni;
@@ -21,13 +20,13 @@ namespace AppPackGo
         private float precio_venta;
         private string localidad;
         private string provincia;
+        private string proveedor;
 
 
         public Viaje()
-        {
-            this.fechacreacion = DateTime.Today;
+        {            
             this.fechaenvio = DateTime.Today;
-            this.npedido = 0;
+            this.npedido = "";
             this.destinatario = "";
             this.domicilio = "";
             this.dni = 0;
@@ -41,12 +40,11 @@ namespace AppPackGo
             this.precio_venta = 0;
             this.localidad = "";
             this.provincia = "";
-
+            this.proveedor = "";
         }
 
-        public Viaje(DateTime fechacreacion, DateTime fechaenvio, int npedido, string destinatario, string domicilio, int dni, int accion, string cliente, float costo, float precio_venta, string localidad, string provincia)
-        {
-            this.fechacreacion = fechacreacion;
+        public Viaje(DateTime fechaenvio, string npedido, string destinatario, string domicilio, int dni, int accion, string cliente, float costo, float precio_venta, string localidad, string provincia, string proveedor)
+        {            
             this.fechaenvio = fechaenvio;
             this.npedido = npedido;
             this.destinatario = destinatario;
@@ -58,15 +56,10 @@ namespace AppPackGo
             this.costo = costo;
             this.localidad = localidad;
             this.provincia = provincia;
-
+            this.proveedor = proveedor;
         }
 
-        public DateTime pfechacreacion
-        {
-            get { return fechacreacion; }
-            set { fechacreacion = value; }
-
-        }
+      
 
         public DateTime pfechaenvio
         {
@@ -75,7 +68,7 @@ namespace AppPackGo
 
         }
 
-        public int pnpedido
+        public string pnpedido
         {
             get { return npedido; }
             set { npedido = value; }
@@ -116,6 +109,7 @@ namespace AppPackGo
         public float pprecio_venta { get => precio_venta; set => precio_venta = value; }
         public string plocalidad { get => localidad; set => localidad = value; }
         public string pprovincia { get => provincia; set => provincia = value; }
+        public string pproveedor { get => proveedor; set => proveedor = value; }
     }
 
 

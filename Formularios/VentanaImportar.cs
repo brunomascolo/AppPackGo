@@ -125,20 +125,20 @@ namespace AppPackGo
                     {
                         Viaje v = new Viaje();
                         v.pcliente = (dgvImportar.Rows[i].Cells[0].Value).ToString().ToUpper();
-                        v.pfechacreacion = Convert.ToDateTime(dgvImportar.Rows[i].Cells[1].Value);
+                        v.pproveedor = dgvImportar.Rows[i].Cells[1].Value.ToString().ToUpper();
                         v.pfechaenvio = Convert.ToDateTime(dgvImportar.Rows[i].Cells[2].Value);
-                        v.pnpedido = Convert.ToInt32(dgvImportar.Rows[i].Cells[3].Value);
+                        v.pnpedido = (dgvImportar.Rows[i].Cells[3].Value).ToString();
                         v.pdestinatario = (dgvImportar.Rows[i].Cells[4].Value).ToString();
                         v.pdni = Convert.ToInt32(dgvImportar.Rows[i].Cells[5].Value);
                         v.pdomicilio = (dgvImportar.Rows[i].Cells[6].Value).ToString();
                         v.plocalidad = (dgvImportar.Rows[i].Cells[7].Value).ToString().ToUpper();
                         v.pprovincia = (dgvImportar.Rows[i].Cells[8].Value).ToString().ToUpper();
                         v.pcosto = float.Parse((string)dgvImportar.Rows[i].Cells[9].Value);
-                        v.pprecio_venta = float.Parse((string)dgvImportar.Rows[i].Cells[10].Value);
+                        v.pprecio_venta = float.Parse((string)dgvImportar.Rows[i].Cells[10].Value);                        
                         v.pusuario = (tablaUsuario.Rows[0][0]).ToString();
 
 
-                        string consulta = "insert into ENVIOS(cliente, fecha_creacion, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario) values (@cliente, @fecha_creacion, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario);";
+                        string consulta = "insert into ENVIOS(cliente, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario, proveedor) values (@cliente, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario, @proveedor);";
                         oBD.actualizarConParametros(consulta, v);
 
 

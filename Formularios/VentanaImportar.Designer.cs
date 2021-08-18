@@ -35,12 +35,17 @@ namespace AppPackGo
             this.lnkConsultas3 = new System.Windows.Forms.Button();
             this.lnkRegistrar3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lnkCrear1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbUbicacion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvImportar = new System.Windows.Forms.DataGridView();
+            this.btnSalir4 = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
+            this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
             this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaEnvio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumeroPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Destinatario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,15 +55,10 @@ namespace AppPackGo
             this.Provincia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precioventa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSalir4 = new System.Windows.Forms.Button();
-            this.btnImportar = new System.Windows.Forms.Button();
-            this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lnkCrear1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tituloImportar
@@ -136,6 +136,33 @@ namespace AppPackGo
             this.panel1.Size = new System.Drawing.Size(260, 655);
             this.panel1.TabIndex = 22;
             // 
+            // lnkCrear1
+            // 
+            this.lnkCrear1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lnkCrear1.FlatAppearance.BorderSize = 0;
+            this.lnkCrear1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.lnkCrear1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.lnkCrear1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lnkCrear1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkCrear1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.lnkCrear1.Location = new System.Drawing.Point(12, 360);
+            this.lnkCrear1.Name = "lnkCrear1";
+            this.lnkCrear1.Size = new System.Drawing.Size(234, 43);
+            this.lnkCrear1.TabIndex = 43;
+            this.lnkCrear1.Text = "Crear Nuevo Cliente";
+            this.lnkCrear1.UseVisualStyleBackColor = false;
+            this.lnkCrear1.Click += new System.EventHandler(this.lnkCrear1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
+            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
@@ -180,7 +207,7 @@ namespace AppPackGo
             this.dgvImportar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvImportar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cliente,
-            this.FechaCreacion,
+            this.Proveedor,
             this.FechaEnvio,
             this.NumeroPedido,
             this.Destinatario,
@@ -197,6 +224,52 @@ namespace AppPackGo
             this.dgvImportar.Size = new System.Drawing.Size(1162, 348);
             this.dgvImportar.TabIndex = 40;
             // 
+            // btnSalir4
+            // 
+            this.btnSalir4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.btnSalir4.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnSalir4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnSalir4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnSalir4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir4.ForeColor = System.Drawing.Color.LightGray;
+            this.btnSalir4.Location = new System.Drawing.Point(1135, 589);
+            this.btnSalir4.Name = "btnSalir4";
+            this.btnSalir4.Size = new System.Drawing.Size(243, 43);
+            this.btnSalir4.TabIndex = 42;
+            this.btnSalir4.Text = "Salir";
+            this.btnSalir4.UseVisualStyleBackColor = false;
+            this.btnSalir4.Click += new System.EventHandler(this.btnSalir4_Click);
+            // 
+            // btnImportar
+            // 
+            this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.btnImportar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnImportar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImportar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportar.ForeColor = System.Drawing.Color.LightGray;
+            this.btnImportar.Location = new System.Drawing.Point(294, 589);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(243, 43);
+            this.btnImportar.TabIndex = 41;
+            this.btnImportar.Text = "Importar Excel";
+            this.btnImportar.UseVisualStyleBackColor = false;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+            // 
+            // btnMinimizarInterfaz
+            // 
+            this.btnMinimizarInterfaz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnMinimizarInterfaz.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarInterfaz.Image")));
+            this.btnMinimizarInterfaz.Location = new System.Drawing.Point(1414, 0);
+            this.btnMinimizarInterfaz.Name = "btnMinimizarInterfaz";
+            this.btnMinimizarInterfaz.Size = new System.Drawing.Size(42, 34);
+            this.btnMinimizarInterfaz.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimizarInterfaz.TabIndex = 39;
+            this.btnMinimizarInterfaz.TabStop = false;
+            this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
+            // 
             // Cliente
             // 
             this.Cliente.HeaderText = "Cliente";
@@ -204,12 +277,12 @@ namespace AppPackGo
             this.Cliente.Name = "Cliente";
             this.Cliente.Width = 150;
             // 
-            // FechaCreacion
+            // Proveedor
             // 
-            this.FechaCreacion.HeaderText = "Fecha de Creacion";
-            this.FechaCreacion.MinimumWidth = 8;
-            this.FechaCreacion.Name = "FechaCreacion";
-            this.FechaCreacion.Width = 150;
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.MinimumWidth = 8;
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.Width = 150;
             // 
             // FechaEnvio
             // 
@@ -274,79 +347,6 @@ namespace AppPackGo
             this.Precioventa.Name = "Precioventa";
             this.Precioventa.Width = 150;
             // 
-            // btnSalir4
-            // 
-            this.btnSalir4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.btnSalir4.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnSalir4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnSalir4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnSalir4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir4.ForeColor = System.Drawing.Color.LightGray;
-            this.btnSalir4.Location = new System.Drawing.Point(1135, 589);
-            this.btnSalir4.Name = "btnSalir4";
-            this.btnSalir4.Size = new System.Drawing.Size(243, 43);
-            this.btnSalir4.TabIndex = 42;
-            this.btnSalir4.Text = "Salir";
-            this.btnSalir4.UseVisualStyleBackColor = false;
-            this.btnSalir4.Click += new System.EventHandler(this.btnSalir4_Click);
-            // 
-            // btnImportar
-            // 
-            this.btnImportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.btnImportar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnImportar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnImportar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImportar.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportar.ForeColor = System.Drawing.Color.LightGray;
-            this.btnImportar.Location = new System.Drawing.Point(294, 589);
-            this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(243, 43);
-            this.btnImportar.TabIndex = 41;
-            this.btnImportar.Text = "Importar Excel";
-            this.btnImportar.UseVisualStyleBackColor = false;
-            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
-            // 
-            // btnMinimizarInterfaz
-            // 
-            this.btnMinimizarInterfaz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMinimizarInterfaz.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizarInterfaz.Image")));
-            this.btnMinimizarInterfaz.Location = new System.Drawing.Point(1414, 0);
-            this.btnMinimizarInterfaz.Name = "btnMinimizarInterfaz";
-            this.btnMinimizarInterfaz.Size = new System.Drawing.Size(42, 34);
-            this.btnMinimizarInterfaz.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimizarInterfaz.TabIndex = 39;
-            this.btnMinimizarInterfaz.TabStop = false;
-            this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
-            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lnkCrear1
-            // 
-            this.lnkCrear1.BackColor = System.Drawing.Color.Gainsboro;
-            this.lnkCrear1.FlatAppearance.BorderSize = 0;
-            this.lnkCrear1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.lnkCrear1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.lnkCrear1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lnkCrear1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkCrear1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.lnkCrear1.Location = new System.Drawing.Point(12, 360);
-            this.lnkCrear1.Name = "lnkCrear1";
-            this.lnkCrear1.Size = new System.Drawing.Size(234, 43);
-            this.lnkCrear1.TabIndex = 43;
-            this.lnkCrear1.Text = "Crear Nuevo Cliente";
-            this.lnkCrear1.UseVisualStyleBackColor = false;
-            this.lnkCrear1.Click += new System.EventHandler(this.lnkCrear1_Click);
-            // 
             // VentanaImportar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -372,9 +372,9 @@ namespace AppPackGo
             this.Text = "VentanaImportar";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VentanaImportar_MouseDown);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,8 +395,9 @@ namespace AppPackGo
         private System.Windows.Forms.DataGridView dgvImportar;
         private System.Windows.Forms.Button btnSalir4;
         private System.Windows.Forms.Button btnImportar;
+        private System.Windows.Forms.Button lnkCrear1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCreacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaEnvio;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumeroPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Destinatario;
@@ -406,6 +407,5 @@ namespace AppPackGo
         private System.Windows.Forms.DataGridViewTextBoxColumn Provincia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precioventa;
-        private System.Windows.Forms.Button lnkCrear1;
     }
 }

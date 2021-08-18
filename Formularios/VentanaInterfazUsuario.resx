@@ -306,6 +306,14 @@
         vPdy6Pn/JQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="pictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAe4AAAAOCAIAAABmRmg3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
+        JQAAFiUBSVIk8AAAAFxJREFUeF7t1rEJwDAAA0HPkhE8mPfvkt7gyqR4OHEzPBrPXACkSTlAnpQD5Ek5
+        QJ6UA+RJOUCelAPkXaX8NTOzP7dV98QrB8iTcoA8KQfIk3KAPCkHyJNygLi5PvWsfrBdp1D2AAAAAElF
+        TkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAwAAAAQAAEABACSBQAAxgAAAAAAAAABAAgA7wsAAFgGAAAAAAAAAQAgAJ0VAABHEgAAEBAQAAEA

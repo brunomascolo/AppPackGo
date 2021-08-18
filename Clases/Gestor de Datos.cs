@@ -105,8 +105,7 @@ namespace AppPackGo
 
             this.comando.Parameters.Clear();
 
-            this.comando.Parameters.AddWithValue("@cliente", v.pcliente);
-            this.comando.Parameters.AddWithValue("@fecha_creacion", v.pfechacreacion);
+            this.comando.Parameters.AddWithValue("@cliente", v.pcliente);           
             this.comando.Parameters.AddWithValue("@fecha_envio", v.pfechaenvio);
             this.comando.Parameters.AddWithValue("@num_pedido", v.pnpedido);
             this.comando.Parameters.AddWithValue("@destinatario", v.pdestinatario);
@@ -117,6 +116,7 @@ namespace AppPackGo
             this.comando.Parameters.AddWithValue("@costo", v.pcosto);
             this.comando.Parameters.AddWithValue("@precio_venta", v.pprecio_venta);
             this.comando.Parameters.AddWithValue("@usuario", v.pusuario);
+            this.comando.Parameters.AddWithValue("@proveedor", v.pproveedor);
 
             this.comando.ExecuteNonQuery();
 

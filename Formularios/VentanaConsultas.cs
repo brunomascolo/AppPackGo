@@ -41,7 +41,7 @@ namespace AppPackGo
         {
             Viaje v = new Viaje();
                       
-            DataTable tabla = oBD.consultarBDD(consultaBDD: "SELECT e.cliente as 'Cliente', e.fecha_creacion as 'Fecha de Creacion', e.fecha_envio as 'Fecha de Envio', e.num_pedido as 'Numero de Pedido', e.destinatario as 'Destinatario', e.dni as 'DNI', e.domicilio as 'Domicilio', e.localidad as 'Localidad', e.provincia as 'Provincia', e.costo as 'Costo', e.precio_venta as 'Precio de Venta', e.usuario as 'Usuario de Carga' FROM ENVIOS as e order by e.fecha_creacion DESC ;"); // 
+            DataTable tabla = oBD.consultarBDD(consultaBDD: "SELECT e.cliente as 'Cliente', e.proveedor as 'Proveedor', e.fecha_envio as 'Fecha de Envio', e.num_pedido as 'Numero de Pedido', e.destinatario as 'Destinatario', e.dni as 'DNI', e.domicilio as 'Domicilio', e.localidad as 'Localidad', e.provincia as 'Provincia', e.costo as 'Costo', e.precio_venta as 'Precio de Venta', e.usuario as 'Usuario de Carga' FROM ENVIOS as e order by e.fecha_creacion DESC ;"); // 
             dgvConsulta.DataSource = tabla;
 
         }

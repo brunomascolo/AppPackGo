@@ -30,9 +30,7 @@ namespace AppPackGo
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VentanaInterfazUsuario));
-            this.fechaCreacion = new System.Windows.Forms.DateTimePicker();
             this.tituloPortalEnvios = new System.Windows.Forms.Label();
-            this.tituloFechaCreacion = new System.Windows.Forms.Label();
             this.tituloFechaEnvio = new System.Windows.Forms.Label();
             this.fechaEnvio = new System.Windows.Forms.DateTimePicker();
             this.tbNpedido = new System.Windows.Forms.TextBox();
@@ -43,15 +41,16 @@ namespace AppPackGo
             this.btnNuevoPedido = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lnkCrear1 = new System.Windows.Forms.Button();
             this.lnkImportar1 = new System.Windows.Forms.Button();
             this.lnkConsultas1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lnkRegistrar1 = new System.Windows.Forms.Button();
             this.tbCliente = new System.Windows.Forms.TextBox();
             this.tbLocalidad = new System.Windows.Forms.TextBox();
             this.tbProvincia = new System.Windows.Forms.TextBox();
             this.tbCosto = new System.Windows.Forms.TextBox();
             this.tbPrecioVenta = new System.Windows.Forms.TextBox();
-            this.lnkCrear1 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -62,8 +61,10 @@ namespace AppPackGo
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnMinimizarInterfaz = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbProveedor = new System.Windows.Forms.TextBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -74,21 +75,8 @@ namespace AppPackGo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
-            // 
-            // fechaCreacion
-            // 
-            this.fechaCreacion.CalendarForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.fechaCreacion.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.fechaCreacion.CalendarTrailingForeColor = System.Drawing.SystemColors.Control;
-            this.fechaCreacion.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechaCreacion.Location = new System.Drawing.Point(532, 259);
-            this.fechaCreacion.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
-            this.fechaCreacion.MinDate = new System.DateTime(2021, 7, 13, 0, 0, 0, 0);
-            this.fechaCreacion.Name = "fechaCreacion";
-            this.fechaCreacion.Size = new System.Drawing.Size(347, 32);
-            this.fechaCreacion.TabIndex = 1;
             // 
             // tituloPortalEnvios
             // 
@@ -102,23 +90,12 @@ namespace AppPackGo
             this.tituloPortalEnvios.TabIndex = 0;
             this.tituloPortalEnvios.Text = "Registrar Envios Unitarios";
             // 
-            // tituloFechaCreacion
-            // 
-            this.tituloFechaCreacion.AutoSize = true;
-            this.tituloFechaCreacion.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tituloFechaCreacion.ForeColor = System.Drawing.Color.White;
-            this.tituloFechaCreacion.Location = new System.Drawing.Point(305, 268);
-            this.tituloFechaCreacion.Name = "tituloFechaCreacion";
-            this.tituloFechaCreacion.Size = new System.Drawing.Size(206, 23);
-            this.tituloFechaCreacion.TabIndex = 4;
-            this.tituloFechaCreacion.Text = "Fecha de Creacion:";
-            // 
             // tituloFechaEnvio
             // 
             this.tituloFechaEnvio.AutoSize = true;
             this.tituloFechaEnvio.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloFechaEnvio.ForeColor = System.Drawing.Color.White;
-            this.tituloFechaEnvio.Location = new System.Drawing.Point(909, 268);
+            this.tituloFechaEnvio.Location = new System.Drawing.Point(715, 290);
             this.tituloFechaEnvio.Name = "tituloFechaEnvio";
             this.tituloFechaEnvio.Size = new System.Drawing.Size(168, 23);
             this.tituloFechaEnvio.TabIndex = 5;
@@ -130,7 +107,7 @@ namespace AppPackGo
             this.fechaEnvio.CalendarTitleForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.fechaEnvio.CalendarTrailingForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.fechaEnvio.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fechaEnvio.Location = new System.Drawing.Point(1083, 261);
+            this.fechaEnvio.Location = new System.Drawing.Point(900, 283);
             this.fechaEnvio.Name = "fechaEnvio";
             this.fechaEnvio.Size = new System.Drawing.Size(343, 32);
             this.fechaEnvio.TabIndex = 2;
@@ -255,6 +232,23 @@ namespace AppPackGo
             this.panel1.Size = new System.Drawing.Size(260, 655);
             this.panel1.TabIndex = 20;
             // 
+            // lnkCrear1
+            // 
+            this.lnkCrear1.BackColor = System.Drawing.Color.Gainsboro;
+            this.lnkCrear1.FlatAppearance.BorderSize = 0;
+            this.lnkCrear1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.lnkCrear1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.lnkCrear1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lnkCrear1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkCrear1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.lnkCrear1.Location = new System.Drawing.Point(12, 360);
+            this.lnkCrear1.Name = "lnkCrear1";
+            this.lnkCrear1.Size = new System.Drawing.Size(234, 43);
+            this.lnkCrear1.TabIndex = 31;
+            this.lnkCrear1.Text = "Crear Nuevo Cliente";
+            this.lnkCrear1.UseVisualStyleBackColor = false;
+            this.lnkCrear1.Click += new System.EventHandler(this.lnkCrear1_Click);
+            // 
             // lnkImportar1
             // 
             this.lnkImportar1.BackColor = System.Drawing.Color.Gainsboro;
@@ -288,6 +282,16 @@ namespace AppPackGo
             this.lnkConsultas1.Text = "Consultar Envios";
             this.lnkConsultas1.UseVisualStyleBackColor = false;
             this.lnkConsultas1.Click += new System.EventHandler(this.lnkConsultas1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
+            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // lnkRegistrar1
             // 
@@ -374,23 +378,6 @@ namespace AppPackGo
             this.tbPrecioVenta.Text = "Precio de Venta";
             this.tbPrecioVenta.Enter += new System.EventHandler(this.tbPrecioVenta_Enter);
             this.tbPrecioVenta.Leave += new System.EventHandler(this.tbPrecioVenta_Leave);
-            // 
-            // lnkCrear1
-            // 
-            this.lnkCrear1.BackColor = System.Drawing.Color.Gainsboro;
-            this.lnkCrear1.FlatAppearance.BorderSize = 0;
-            this.lnkCrear1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.lnkCrear1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.lnkCrear1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lnkCrear1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnkCrear1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
-            this.lnkCrear1.Location = new System.Drawing.Point(12, 360);
-            this.lnkCrear1.Name = "lnkCrear1";
-            this.lnkCrear1.Size = new System.Drawing.Size(234, 43);
-            this.lnkCrear1.TabIndex = 31;
-            this.lnkCrear1.Text = "Crear Nuevo Cliente";
-            this.lnkCrear1.UseVisualStyleBackColor = false;
-            this.lnkCrear1.Click += new System.EventHandler(this.lnkCrear1_Click);
             // 
             // pictureBox10
             // 
@@ -485,15 +472,28 @@ namespace AppPackGo
             this.btnMinimizarInterfaz.TabStop = false;
             this.btnMinimizarInterfaz.Click += new System.EventHandler(this.btnMinimizarInterfaz_Click);
             // 
-            // pictureBox1
+            // tbProveedor
             // 
-            this.pictureBox1.Image = global::AppPackGo.Properties.Resources.LOGO_PGO_FINAL_chico;
-            this.pictureBox1.Location = new System.Drawing.Point(-41, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 125);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.tbProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
+            this.tbProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbProveedor.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProveedor.ForeColor = System.Drawing.Color.White;
+            this.tbProveedor.Location = new System.Drawing.Point(309, 279);
+            this.tbProveedor.Name = "tbProveedor";
+            this.tbProveedor.Size = new System.Drawing.Size(304, 25);
+            this.tbProveedor.TabIndex = 40;
+            this.tbProveedor.Text = "Proveedor";
+            this.tbProveedor.Enter += new System.EventHandler(this.tbProveedor_Enter);
+            this.tbProveedor.Leave += new System.EventHandler(this.tbProveedor_Leave);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.Location = new System.Drawing.Point(284, 310);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(329, 15);
+            this.pictureBox11.TabIndex = 41;
+            this.pictureBox11.TabStop = false;
             // 
             // VentanaInterfazUsuario
             // 
@@ -504,6 +504,8 @@ namespace AppPackGo
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(50)))), ((int)(((byte)(110)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1800, 650);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.tbProveedor);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.tbPrecioVenta);
             this.Controls.Add(this.pictureBox9);
@@ -529,9 +531,7 @@ namespace AppPackGo
             this.Controls.Add(this.tbNpedido);
             this.Controls.Add(this.fechaEnvio);
             this.Controls.Add(this.tituloFechaEnvio);
-            this.Controls.Add(this.tituloFechaCreacion);
             this.Controls.Add(this.tituloPortalEnvios);
-            this.Controls.Add(this.fechaCreacion);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -542,6 +542,7 @@ namespace AppPackGo
             this.Load += new System.EventHandler(this.VentanaInterfazUsuario_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VentanaInterfazUsuario_MouseDown);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -552,7 +553,7 @@ namespace AppPackGo
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizarInterfaz)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -561,9 +562,7 @@ namespace AppPackGo
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker fechaCreacion;
         private System.Windows.Forms.Label tituloPortalEnvios;
-        private System.Windows.Forms.Label tituloFechaCreacion;
         private System.Windows.Forms.Label tituloFechaEnvio;
         private System.Windows.Forms.DateTimePicker fechaEnvio;
         private System.Windows.Forms.TextBox tbNpedido;
@@ -593,5 +592,7 @@ namespace AppPackGo
         private System.Windows.Forms.TextBox tbPrecioVenta;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Button lnkCrear1;
+        private System.Windows.Forms.TextBox tbProveedor;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

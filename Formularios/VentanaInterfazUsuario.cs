@@ -12,9 +12,6 @@ namespace AppPackGo
     public partial class VentanaInterfazUsuario : Form
     {
         Gestor_de_Datos oBD = new Gestor_de_Datos();
-        bool nuevo = false;
-
-
         DataTable tablaUsuario = new DataTable();
 
 
@@ -200,6 +197,25 @@ namespace AppPackGo
             }
         }
 
+        private void tbProveedor_Enter(object sender, EventArgs e)
+        {
+            if (tbProveedor.Text == "Proveedor")
+            {
+                tbProveedor.Text = "";
+                tbProveedor.ForeColor = Color.White;
+
+            }
+        }
+
+        private void tbProveedor_Leave(object sender, EventArgs e)
+        {
+            if (tbProveedor.Text == "")
+            {
+                tbProveedor.Text = "Proveedor";
+                tbProveedor.ForeColor = Color.White;
+            }
+        }
+
         //Termina metodos de desvanecimiento
 
 
@@ -228,8 +244,7 @@ namespace AppPackGo
 
         //Metodo para habilitar y deshabilitar los TB
         public void habilitar(bool x)
-        {
-            fechaCreacion.Enabled = x;
+        {       
             fechaEnvio.Enabled = x;
             tbNpedido.Enabled = x;
             tbDestinatario.Enabled = x;
@@ -242,6 +257,7 @@ namespace AppPackGo
             tbPrecioVenta.Enabled = x;
             tbProvincia.Enabled = x;
             tbLocalidad.Enabled = x;
+            tbProveedor.Enabled = x;
         }
         //Termina metodo habilitar los TB
 
@@ -252,14 +268,14 @@ namespace AppPackGo
             tbNpedido.Text = "";
             tbDestinatario.Text = "";
             tbDNI.Text = "";
-            tbDomicilio.Text = "";
-            fechaCreacion.Value = DateTime.Now;
+            tbDomicilio.Text = "";            
             fechaEnvio.Value = DateTime.Now;
             tbCliente.Text = "";
             tbProvincia.Text = "";
             tbLocalidad.Text = "";
             tbCosto.Text = "";
             tbPrecioVenta.Text = "";
+            tbProveedor.Text = "";
 
         }       
 
@@ -268,16 +284,14 @@ namespace AppPackGo
             tbNpedido.Text = "Numero de Pedido";
             tbDestinatario.Text = "Destinatario";
             tbDNI.Text = "DNI (Solo Numeros)";
-            tbDomicilio.Text = "Domicilio: (Calle, Numero, Localidad)";
-            fechaCreacion.Value = DateTime.Now;
+            tbDomicilio.Text = "Domicilio: (Calle, Numero, Localidad)";            
             fechaEnvio.Value = DateTime.Now;
             tbCliente.Text = "Cliente";
             tbProvincia.Text = "Provincia";
             tbLocalidad.Text = "Localidad";
             tbCosto.Text = "Costo";
             tbPrecioVenta.Text = "Precio de Venta";
-
-
+            tbProveedor.Text = "Proveedor";
         }
 
         //Termina metodo para limpiar e inicializar TB
@@ -299,6 +313,7 @@ namespace AppPackGo
                 MessageBox.Show("Debe ingresar un Destinatario");
                 return;
             }
+            
 
             if (tbCliente.Text == "")
             {
@@ -342,12 +357,7 @@ namespace AppPackGo
                 MessageBox.Show("Debe ingresar un domicilio");
                 return;
             }
-            if (fechaEnvio.Value < fechaCreacion.Value)
-            {
-                MessageBox.Show("La fecha de Envio no puede ser menor que la fecha de creacion.");
-                return;
-
-            }
+          
             try
             {
                 int DNI = Convert.ToInt32(tbDNI.Text);
@@ -375,10 +385,9 @@ namespace AppPackGo
                     //registro a la propiedad los campos ya validados
 
                     Viaje v = new Viaje();
-                    v.pcliente = tbCliente.Text.ToUpper();
-                    v.pfechacreacion = Convert.ToDateTime(fechaCreacion.Value);
+                    v.pcliente = tbCliente.Text.ToUpper();                    
                     v.pfechaenvio = Convert.ToDateTime(fechaEnvio.Value);
-                    v.pnpedido = Convert.ToInt32(tbNpedido.Text);
+                    v.pnpedido = (tbNpedido.Text);
                     v.pdestinatario = tbDestinatario.Text;
                     v.pdni = Convert.ToInt32(tbDNI.Text);
                     v.pdomicilio = tbDomicilio.Text;
@@ -392,13 +401,12 @@ namespace AppPackGo
 
                     //Inserto en la BDD
 
-                    string consulta = "insert into ENVIOS(cliente, fecha_creacion, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario) values (@cliente, @fecha_creacion, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario);";
+                    string consulta = "insert into ENVIOS(cliente, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario, proveedor) values (@cliente, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario, @proveedor);";
                     oBD.actualizarConParametros(consulta, v);
 
                     habilitar(false);
                     limpiar();
-                    inicializar();
-                    nuevo = true;
+                    inicializar();                    
                     btnRegistrarPedido.Enabled = false;
                     MessageBox.Show("Operacion Exitosa");
 
@@ -435,8 +443,7 @@ namespace AppPackGo
 
         private void btnNuevoPedido_Click(object sender, EventArgs e)
         {
-            habilitar(true);
-            nuevo = true;
+            habilitar(true);            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -474,6 +481,8 @@ namespace AppPackGo
             ClienteNuevo clientenuevo = new ClienteNuevo();
             clientenuevo.Show();
         }
+
+       
 
         //Termina funcionalidades de los botones
 
