@@ -9,7 +9,7 @@ namespace AppPackGo
         private string npedido;
         private string destinatario;
         private string domicilio;
-        private int dni;
+        private string dni;
         private int accion;
         private string usuario;
         private string contrasena;
@@ -29,7 +29,7 @@ namespace AppPackGo
             this.npedido = "";
             this.destinatario = "";
             this.domicilio = "";
-            this.dni = 0;
+            this.dni = "";
             this.accion = 0;
             this.usuario = "";
             this.contrasena = "";
@@ -43,7 +43,7 @@ namespace AppPackGo
             this.proveedor = "";
         }
 
-        public Viaje(DateTime fechaenvio, string npedido, string destinatario, string domicilio, int dni, int accion, string cliente, float costo, float precio_venta, string localidad, string provincia, string proveedor)
+        public Viaje(DateTime fechaenvio, string npedido, string destinatario, string domicilio, string dni, int accion, string cliente, float costo, float precio_venta, string localidad, string provincia, string proveedor)
         {            
             this.fechaenvio = fechaenvio;
             this.npedido = npedido;
@@ -88,7 +88,7 @@ namespace AppPackGo
             set { domicilio = value; }
         }
 
-        public int pdni
+        public string pdni
         {
             get { return dni; }
             set { dni = value; }

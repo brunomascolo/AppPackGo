@@ -129,7 +129,7 @@ namespace AppPackGo
                         v.pfechaenvio = Convert.ToDateTime(dgvImportar.Rows[i].Cells[2].Value);
                         v.pnpedido = (dgvImportar.Rows[i].Cells[3].Value).ToString();
                         v.pdestinatario = (dgvImportar.Rows[i].Cells[4].Value).ToString();
-                        v.pdni = Convert.ToInt32(dgvImportar.Rows[i].Cells[5].Value);
+                        v.pdni = (dgvImportar.Rows[i].Cells[5].Value).ToString();
                         v.pdomicilio = (dgvImportar.Rows[i].Cells[6].Value).ToString();
                         v.plocalidad = (dgvImportar.Rows[i].Cells[7].Value).ToString().ToUpper();
                         v.pprovincia = (dgvImportar.Rows[i].Cells[8].Value).ToString().ToUpper();

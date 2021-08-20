@@ -302,18 +302,16 @@ namespace AppPackGo
         {
             //Validaciones:
 
-            if (tbNpedido.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un numero de pedido");
-                return;
-            }
-
             if (tbDestinatario.Text == "")
             {
                 MessageBox.Show("Debe ingresar un Destinatario");
                 return;
             }
-            
+            if (tbProveedor.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un Proveedor");
+                return;
+            }
 
             if (tbCliente.Text == "")
             {
@@ -346,12 +344,6 @@ namespace AppPackGo
                 return;
             }
 
-            if (tbDNI.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un DNI");
-                return;
-            }
-
             if (tbDomicilio.Text == "")
             {
                 MessageBox.Show("Debe ingresar un domicilio");
@@ -359,18 +351,14 @@ namespace AppPackGo
             }
           
             try
-            {
-                int DNI = Convert.ToInt32(tbDNI.Text);
-                int npedido = Convert.ToInt32(tbNpedido.Text);
+            {               
                 float costo = float.Parse(tbCosto.Text);
                 float precio = float.Parse(tbPrecioVenta.Text);
-
-
             }
 
             catch (Exception)
             {
-                MessageBox.Show("Las casillas DNI, Numero de Pedido, Costo y Precio solo aceptan numeros");
+                MessageBox.Show("Las casillas Costo y Precio solo aceptan numeros");
                 return;
             }
             try
@@ -389,7 +377,7 @@ namespace AppPackGo
                     v.pfechaenvio = Convert.ToDateTime(fechaEnvio.Value);
                     v.pnpedido = (tbNpedido.Text);
                     v.pdestinatario = tbDestinatario.Text;
-                    v.pdni = Convert.ToInt32(tbDNI.Text);
+                    v.pdni = (tbDNI.Text);
                     v.pdomicilio = tbDomicilio.Text;
                     v.plocalidad = tbLocalidad.Text.ToUpper();
                     v.pprovincia = tbProvincia.Text.ToUpper();
