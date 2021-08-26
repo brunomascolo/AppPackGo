@@ -117,6 +117,7 @@ namespace AppPackGo
             this.comando.Parameters.AddWithValue("@precio_venta", v.pprecio_venta);
             this.comando.Parameters.AddWithValue("@usuario", v.pusuario);
             this.comando.Parameters.AddWithValue("@proveedor", v.pproveedor);
+            this.comando.Parameters.AddWithValue("@fechacreacion", v.pfechacreacion);
 
             this.comando.ExecuteNonQuery();
 

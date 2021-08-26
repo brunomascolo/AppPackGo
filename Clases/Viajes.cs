@@ -6,6 +6,7 @@ namespace AppPackGo
     class Viaje
     {      
         private DateTime fechaenvio;
+        private DateTime fechacreacion;
         private string npedido;
         private string destinatario;
         private string domicilio;
@@ -26,6 +27,7 @@ namespace AppPackGo
         public Viaje()
         {            
             this.fechaenvio = DateTime.Today;
+            this.fechacreacion = DateTime.Today;
             this.npedido = "";
             this.destinatario = "";
             this.domicilio = "";
@@ -43,9 +45,10 @@ namespace AppPackGo
             this.proveedor = "";
         }
 
-        public Viaje(DateTime fechaenvio, string npedido, string destinatario, string domicilio, string dni, int accion, string cliente, float costo, float precio_venta, string localidad, string provincia, string proveedor)
+        public Viaje(DateTime fechaenvio, DateTime fechacreacion, string npedido, string destinatario, string domicilio, string dni, int accion, string cliente, float costo, float precio_venta, string localidad, string provincia, string proveedor)
         {            
             this.fechaenvio = fechaenvio;
+            this.fechacreacion = fechacreacion;
             this.npedido = npedido;
             this.destinatario = destinatario;
             this.domicilio = domicilio;
@@ -110,6 +113,7 @@ namespace AppPackGo
         public string plocalidad { get => localidad; set => localidad = value; }
         public string pprovincia { get => provincia; set => provincia = value; }
         public string pproveedor { get => proveedor; set => proveedor = value; }
+        public DateTime pfechacreacion { get => fechacreacion; set => fechacreacion = value; }
     }
 
 

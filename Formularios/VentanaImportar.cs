@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AppPackGo
@@ -16,6 +17,7 @@ namespace AppPackGo
             InitializeComponent();
             this.tablaUsuario = tablaUsuario;
             dgvImportar.Visible = false;
+            progressBar.Visible = false;
         }
 
         //Movilizar ventana en el escritorio
@@ -97,7 +99,7 @@ namespace AppPackGo
                     for (xlRow = 2; xlRow <= xlRange.Rows.Count; xlRow++)
                     {
                         dgvImportar.Rows.Add(xlRange.Cells[xlRow, 1].Text, xlRange.Cells[xlRow, 2].Text, xlRange.Cells[xlRow, 3].Text, xlRange.Cells[xlRow, 4].Text, xlRange.Cells[xlRow, 5].Text, xlRange.Cells[xlRow, 6].Text, xlRange.Cells[xlRow, 7].Text, xlRange.Cells[xlRow, 8].Text, xlRange.Cells[xlRow, 9].Text, xlRange.Cells[xlRow, 10].Text, xlRange.Cells[xlRow, 11].Text);
-
+                        
                     }
                     xlWorkbook.Close();
                     xlApp.Quit();
@@ -137,10 +139,12 @@ namespace AppPackGo
                         v.pcosto = float.Parse((string)dgvImportar.Rows[i].Cells[9].Value);
                         v.pprecio_venta = float.Parse((string)dgvImportar.Rows[i].Cells[10].Value);                        
                         v.pusuario = (tablaUsuario.Rows[0][0]).ToString();
+                        v.pfechacreacion = DateTime.Now;
 
 
-                        string consulta = "insert into ENVIOS(cliente, fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario, proveedor) values (@cliente, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario, @proveedor);";
+                        string consulta = "insert into ENVIOS(cliente, fecha_creacion,fecha_envio, num_pedido, destinatario, dni, domicilio, localidad, provincia, costo, precio_venta, usuario, proveedor) values (@cliente, @fechacreacion, @fecha_envio, @num_pedido, @destinatario, @dni, @domicilio, @localidad, @provincia, @costo, @precio_venta, @usuario, @proveedor);";
                         oBD.actualizarConParametros(consulta, v);
+                       
 
 
                     }
@@ -162,5 +166,7 @@ namespace AppPackGo
             ClienteNuevo clientenuevo = new ClienteNuevo();
             clientenuevo.Show();
         }
+
+      
     }
 }
