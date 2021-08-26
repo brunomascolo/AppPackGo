@@ -127,6 +127,7 @@ namespace AppPackGo
                         v.pcliente = (dgvImportar.Rows[i].Cells[0].Value).ToString().ToUpper();
                         v.pproveedor = dgvImportar.Rows[i].Cells[1].Value.ToString().ToUpper();
                         v.pfechaenvio = Convert.ToDateTime(dgvImportar.Rows[i].Cells[2].Value);
+                        v.pfechaenvio.ToString("MM/dd/yyyy");
                         v.pnpedido = (dgvImportar.Rows[i].Cells[3].Value).ToString();
                         v.pdestinatario = (dgvImportar.Rows[i].Cells[4].Value).ToString();
                         v.pdni = (dgvImportar.Rows[i].Cells[5].Value).ToString();
